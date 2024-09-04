@@ -8,7 +8,6 @@ To install BynixScript globally using npm, run the following command:
 ```
 npm install -g BynixScript
 ```
-To update BynixScript to an unstable version
 
 ### Updating BynixScript
 If you want to update BynixScript to the latest stable version, use:
