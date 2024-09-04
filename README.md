@@ -4,7 +4,7 @@ Simply put, BynixScript is a programming language created by UngGas Studio. For 
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Website](https://img.shields.io/badge/official-website-blue)](example.com)
 [![Documentation](https://img.shields.io/badge/Documentation-8A2BE2)](page/documentation.md)
-[![YouTube Channel](https://img.shileds.io/badge/YouTube-Channel-orange)](https://www.youtube.com/@unggasstudio) 
+[![YouTube Channel](https://img.shileds.io/badge/YouTube-Channel-red)](https://www.youtube.com/@unggasstudio) 
 
 ## Installation
 To run BynixScript, you have two options:
