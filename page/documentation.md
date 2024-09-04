@@ -6,4 +6,6 @@ And, this programming language was created when its developer was still 14 years
 ## BynixScript Documentation
 BynixScript Has a syntax similar to GDscript, Python and JavaScript.
 
-Currently this programming language can create conditions, modify (add, create, change text, and change the style of elements in HTML), functions, etc. which you can see on the [command] page.
+Currently this programming language can create conditions, modify (add, create, change text, and change the style of elements in HTML), functions, etc. which you can see on the [command](page/command.md) page.
+
+And, BynixScript has easier syntax than JavaScript.
