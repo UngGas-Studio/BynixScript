@@ -1,12 +1,14 @@
 # What is BynixScript?
-Simply put, BynixScript is a programming language created by UngGas Studio
+Simply put, BynixScript is a programming language created by UngGas Studio.
 
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Website](https://img.shields.io/badge/official-website-blue)](example.com)
 [![Documentation](https://img.shields.io/badge/Documentation-8A2BE2)](page/documentation.md)
 
 ## Installation
-If you want to run BynixScript with npm or clone the repository, go to [Non-Website](page/non-website.md). But if you want to run BynixScript on a website, open [Website](page/website.md)
+To run BynixScript, you have two options:
+- [Non-Website](page/non-website.md): **To run BynixScript on npm or clone repository**
+- [Website](page/website.md): **To run BynixScript on your website**
 ## Get Started
 ### Using npm
 Run BynixScript :
