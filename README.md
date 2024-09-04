@@ -11,28 +11,28 @@ To run BynixScript, you have two options:
 - [Website](page/website.md): **To run BynixScript on your website**
 ## Get Started
 ### Using npm
-Run BynixScript :
+Run a BynixScript file:
 ```
 bsr path/to/script.bs
 ```
-Compile BynixScript :
+Compile a BynixScript file:
 ```
 bst path/to/script.bs
 ```
-Print BynixScript to console :
+To print a BynixScript to console:
 ```
 bsp path/to/script.bs
 ```
 ### Using clone repository
-Run BynixScript :
+Run a BynixScript file:
 ```
 node bsr.js path/to/script.bs
 ```
-Compile BynixScript :
+Compile a BynixScript file:
 ```
 node bst.js path/to/script.bs
 ```
-Print BynixScript to console :
+Print a BynixScript to console file:
 ```
 node bsp.js path/to/script.bs
 ```
