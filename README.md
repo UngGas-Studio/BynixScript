@@ -19,7 +19,7 @@ Compile a BynixScript file:
 ```
 bst path/to/script.bs
 ```
-To print a BynixScript to console:
+To print a BynixScript file to console:
 ```
 bsp path/to/script.bs
 ```
@@ -32,7 +32,7 @@ Compile a BynixScript file:
 ```
 node bst.js path/to/script.bs
 ```
-Print a BynixScript to console file:
+To print a BynixScript file to console:
 ```
 node bsp.js path/to/script.bs
 ```
