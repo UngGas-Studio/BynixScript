@@ -32,3 +32,5 @@ Print BynixScript to console :
 ```
 node bsp.js path/to/script.bs
 ```
+## Example and Command
+You can see examples at [example](https://github.com/UngGasStudio/BynixScript/blob/secret/example.md) and commands at [command](https://github.com/UngGasStudio/BynixScript/blob/secret/command.md)
