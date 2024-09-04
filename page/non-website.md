@@ -1,7 +1,7 @@
 # Non-Website
 Unfortunately, BynixScript Non-Website is not compatible for mobile devices.
 
-### Installing
+### Installation Commands
 To install BynixScript
 ```
 npm install -g BynixScript
