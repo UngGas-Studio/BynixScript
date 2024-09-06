@@ -41,6 +41,7 @@ node bsp.js path/to/script.bs
 You can see examples at [example](https://github.com/UngGasStudio/BynixScript/blob/secret/example.md) and commands at [command](https://github.com/UngGasStudio/BynixScript/blob/secret/command.md)
 ## Table of content
 - [What Is BynixScript](#What-Is-BynixScript)
-- [Installation](#Installation)
+- -[Installation](#Installation)
 - [Get Started](#Get-Started)
 - [Example and Command](#Example-and-Command)
+- [Table of content](#Table-of-content)
