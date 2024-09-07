@@ -1,3 +1,4 @@
+/* Reset and Basic Styles */
 * {
     margin: 0;
     padding: 0;
@@ -102,6 +103,7 @@ section {
 .features {
     display: flex;
     justify-content: space-between;
+    gap: 20px;
 }
 
 .feature {
@@ -148,4 +150,90 @@ footer {
     text-align: center;
     margin-top: 40px;
 }
-  
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .features {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .hero-content {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .features {
+        flex-direction: column;
+    }
+
+    .feature h3 {
+        font-size: 22px;
+    }
+
+    .about-section h2, .features-section h2, .contact-section h2 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+
+    section {
+        padding: 40px 10px;
+    }
+}
