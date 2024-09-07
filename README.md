@@ -43,5 +43,7 @@ You can see examples at [example](pages/example.md) and commands at [command](pa
 - [What Is BynixScript](#What-Is-BynixScript)
   - [Installation](#Installation)
   - [Get Started](#Get-Started)
+      - [Using npm](#Using-npm)
+      - [Using clone repository](#Using-clone-repository)
   - [Example and Command](#Example-and-Command)
   - [Table of content](#Table-of-content)
