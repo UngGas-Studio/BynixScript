@@ -47,6 +47,14 @@ nav ul li a {
     font-weight: 400;
 }
 
+.hamburger {
+    display: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Hero Section */
 .hero {
     background: url('https://source.unsplash.com/1600x900/?code') no-repeat center center/cover;
     height: 100vh;
@@ -95,75 +103,36 @@ section {
     margin: 0 auto;
 }
 
-.about-section h2, .features-section h2, .contact-section h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #333;
+        width: 200px;
+        border-radius: 8px;
+    }
 
-.features {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-}
+    .nav-links.active {
+        display: flex;
+    }
 
-.feature {
-    flex: 1;
-    padding: 20px;
-}
+    .nav-links li {
+        margin: 15px 0;
+    }
 
-.feature h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.contact-section form {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-form input, form textarea {
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-form button {
-    padding: 10px;
-    background-color: #ff4757;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-form button:hover {
-    background-color: #ff6b81;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: 40px;
+    .hamburger {
+        display: block;
+    }
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
     .features {
         flex-direction: column;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin: 10px 0;
     }
 
     .hero h1 {
@@ -179,41 +148,9 @@ footer {
     }
 }
 
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    .btn {
-        font-size: 16px;
-        padding: 10px 20px;
-    }
-
-    .features {
-        flex-direction: column;
-    }
-
-    .feature h3 {
-        font-size: 22px;
-    }
-
-    .about-section h2, .features-section h2, .contact-section h2 {
-        font-size: 32px;
-    }
-}
-
 @media (max-width: 576px) {
     .logo {
         font-size: 20px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: flex-start;
     }
 
     .hero h1 {
