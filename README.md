@@ -3,13 +3,13 @@ Simply put, BynixScript is a programming language created by UngGas Studio. For 
 
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Website](https://img.shields.io/badge/official-website-blue)](example.com)
-[![Documentation](https://img.shields.io/badge/Documentation-8A2BE2)](page/documentation.md)
+[![Documentation](https://img.shields.io/badge/Documentation-8A2BE2)](pages/documentation.md)
 [![Youtube](https://img.shields.io/badge/YouTube-Channel-orange)](example.com)
 
 ## Installation
 To run BynixScript, you have two options:
-- [Non-Website](page/non-website.md): **To run BynixScript on npm or clone repository**
-- [Website](page/website.md): **To run BynixScript on your website**
+- [Non-Website](pages/non-website.md): **To run BynixScript on npm or clone repository**
+- [Website](pages/website.md): **To run BynixScript on your website**
 ## Get Started
 ### Using npm
 Run a BynixScript file:
@@ -38,7 +38,7 @@ To print a BynixScript file to console:
 node bsp.js path/to/script.bs
 ```
 ## Example and Command
-You can see examples at [example](https://github.com/UngGasStudio/BynixScript/blob/secret/example.md) and commands at [command](https://github.com/UngGasStudio/BynixScript/blob/secret/command.md)
+You can see examples at [example](pages/example.md) and commands at [command](pages/command.md)
 ## Table of content
 - [What Is BynixScript](#What-Is-BynixScript)
   - [Installation](#Installation)
