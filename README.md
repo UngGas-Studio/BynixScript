@@ -52,4 +52,3 @@ You can see examples at [example](pages/example.md) and commands at [command](pa
   - [Extension](#Extension)
   - [Example and Command](#Example-and-Command)
   - [Table of content](#Table-of-content)
-  - 
