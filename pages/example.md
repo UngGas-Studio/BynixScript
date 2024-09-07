@@ -35,14 +35,14 @@ end:
 ```
 ## Example 4: Creating and Managing Elements
 ```bynixscript
-const myElement = createElement("div")  // Typo diperbaiki dari "createElemet" ke "createElement"
+const myElement = createElement("div")
 myElement.manageText("Hello World!")
 body.addElement(myElement)
 ```
 ## Example 5: Accessing and Printing an Element's Text
 ```bynixscript
 const h1 = getElement(".h1")
-h1.manageText.get  // Properti untuk mendapatkan teks di elemen h1
+h1.manageText.get
 
 print(h1)
 ```
