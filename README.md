@@ -37,12 +37,12 @@ To print a BynixScript file to console:
 ```
 node bsp.js path/to/script.bs
 ```
-## Example and Command
-You can see examples at [example## Hightlighter
+## Hightlighter
 If you want a highlighter, you have two options :
 - [BynixScript VScode](example.com): To add highlighter to vscode
 - [BynixScript Acode](example.com): To add a highlighter to acode
-- ](pages/example.md) and commands at [command](pages/command.md)
+## Example and Command
+You can see examples at [example](pages/example.md) and commands at [command](pages/command.md)
 ## Table of content
 - [What Is BynixScript](#What-Is-BynixScript)
   - [Installation](#Installation)
@@ -52,3 +52,4 @@ If you want a highlighter, you have two options :
   - [Highlighter](#Hightlighter)
   - [Example and Command](#Example-and-Command)
   - [Table of content](#Table-of-content)
+  - 
