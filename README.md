@@ -40,7 +40,7 @@ node bsp.js path/to/script.bs
 ## Extension
 If you want a extension, you have two options :
 - [BynixScript VScode](example.com): To add highlighter to vscode
-- [BynixScript Acode](example.com): To add a highlighter to acode
+- [BynixScript Acode](pages/acode-plugin.md): To add a highlighter to acode
 ## Example and Command
 You can see examples at [example](pages/example.md) and commands at [command](pages/command.md)
 ## Table of content
