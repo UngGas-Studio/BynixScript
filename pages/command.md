@@ -23,11 +23,11 @@ end:
 
 // Translate to
 if (number > 10) {
-   console.log("Bigger than ten")
+   console.log("Bigger than ten");
 } else if (number < 10) {
-   console.log("Smaller than ten")
+   console.log("Smaller than ten");
 } else {
-   console.log("Is ten")
+   console.log("Is ten");
 }
 ```
 #### Interaction
@@ -94,4 +94,24 @@ switch (choice) {
    default:
      console.log("No choice")
 }
+```
+#### Asynchronous Programming
+```javascript
+delay:
+  print("Delay in 5 seconds")
+end:5000:
+
+// Translate to
+setTimeout(function() {
+  console.log("Delay in 5 seconds");
+}, 5000);
+
+repeat:
+  print("Repeating every 2 seconds")
+end:2000:
+
+// Translate to
+setInterval(function() {
+  console.log("Repeating every 2 seconds");
+}, 2000);
 ```
