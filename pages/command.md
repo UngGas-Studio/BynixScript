@@ -19,6 +19,7 @@ elif number < 10:
    print("Smaller than ten")
 else:
    print("Is ten")
+end:
 
 // Translate to
 if (number > 10) {
@@ -69,3 +70,15 @@ const text = myElement.text
 myElement.manageImage("fas fa-camera")
 // manageImage(myElement, "fas fa-camera");
 ```
+#### Control Flow
+```javascript
+match choice:
+   case choice1:
+     print("Choice 1")
+     break:
+   case choice2:
+     print("Choice 2")
+     break:
+   default:
+     print("No choice")
+end:
