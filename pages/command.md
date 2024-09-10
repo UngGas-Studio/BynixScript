@@ -59,4 +59,27 @@ const myDiv = createElement("div")
 
 body.addElement(myDiv)
 // document.body.appendChild(myDiv);
+
+myElement.text "Hello World!"
+// myElement.textContent = "Hello World!";
+
+const text = myElement.text
+// const text = myElement.textContent;
+```
+```javascript
+myElement.manageImage("fas fa-camera")
+
+// Translate to
+function manageImage(element, imageClass) {
+  if (!element) {
+    console.error(`Element tidak ditemukan.`);
+    return;
+  }
+
+  const icon = document.createElement("i");
+  const classes = imageClass.split(' ');
+  classes.forEach(cls => icon.classList.add(cls));
+
+  element.appendChild(icon);
+}
 ```
