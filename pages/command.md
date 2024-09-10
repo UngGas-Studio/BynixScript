@@ -61,14 +61,20 @@ const myDiv = createElement("div")
 body.addElement(myDiv)
 // document.body.appendChild(myDiv);
 
-myElement.text "Hello World!"
+myElement.text = "Hello World!"
 // myElement.textContent = "Hello World!";
 
 const text = myElement.text
 // const text = myElement.textContent;
 
-myElement.manageImage("fas fa-camera")
-// manageImage(myElement, "fas fa-camera");
+myElement.image = "fas fa-camera"
+// image(myElement, "fas fa-camera");
+
+myElement.design = "color: green;"
+// myElement.style = "color: green;";
+
+myElement.design.color = "green"
+// myElement.design.color = "green";
 ```
 #### Control Flow
 ```javascript
