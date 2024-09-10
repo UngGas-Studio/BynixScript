@@ -115,3 +115,11 @@ setInterval(function() {
   console.log("Repeating every 2 seconds");
 }, 2000);
 ```
+#### Math Operations
+```javascript
+print(rand(4. 7))
+// console.log(Math.floor(4.7));
+
+print(roundUp(4.2))
+// console.log(Math.ceil(4.2));
+```
