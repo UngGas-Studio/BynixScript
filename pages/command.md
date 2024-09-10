@@ -4,16 +4,12 @@ BynixScript commands are similar to JavaScript, only simplified and there are so
 ###### Reassign variable:
 ```javascript
 var name = "myName"
-
-// Translate to
-var name = "myName";
+// var name = "myName";
 ```
 ###### Assign variable:
 ```javascript
 const name = "yourName"
-
-// Translate to
-const name = "yourName";
+// const name = "yourName";
 ```
 #### Condition
 ```javascript
@@ -26,10 +22,27 @@ else:
 
 // Translate to
 if (number > 10) {
-   print("Bigger than ten")
+   console.log("Bigger than ten")
 } else if (number < 10) {
-   print("Smaller than ten")
+   console.log("Smaller than ten")
 } else {
-   print("Is ten")
+   console.log("Is ten")
 }
+```
+#### Interaction
+###### User interaction:
+```javascript
+touch("Hello World!")
+// alert("Hello World")
+
+ask("What's your name?")
+// prompt("What's your name?");
+
+confirm("Are you sure you want to exit?")
+// confirm("Are you sure you want to exit?");
+```
+###### Logging/Debugging:
+```javascript
+print("Hello World!")
+// console.log("Hello World!");
 ```
