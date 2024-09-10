@@ -123,7 +123,7 @@ print(rand())
 print(roundUp(4.2))
 // console.log(Math.ceil(4.2));
 
-print(roundDown(4, 7)
+print(roundDown(4, 7))
 // console.log(Math.fllor(4, 7));
 
 print(maxOf(10, 20, 30))
