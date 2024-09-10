@@ -138,3 +138,6 @@ print(maxOf(10, 20, 30))
 print(minOf(10, 20, 30))
 // console.log(Math.min(10, 20, 30));
 ```
+#### Regular Expressions
+```javascript
+myText.change("World!",
