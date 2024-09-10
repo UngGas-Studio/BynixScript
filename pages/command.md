@@ -46,3 +46,17 @@ confirm("Are you sure you want to exit?")
 print("Hello World!")
 // console.log("Hello World!");
 ```
+#### DOM Manipulation
+```javascript
+const myElement = getElement("#myElement")
+// const myElement = document.querySelector("#myElement");
+
+const myElement = getAllElement(".myElement")
+// const myElement = document.querySelectorAll(".myElement");
+
+const myDiv = createElement("div")
+// const myDiv = createElement("div");
+
+body.addElement(myDiv)
+// document.body.appendChild(myDiv);
+```
