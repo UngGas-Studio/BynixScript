@@ -82,3 +82,16 @@ match choice:
    default:
      print("No choice")
 end:
+
+// Translate to
+switch (choice) {
+   case choice1:
+     console.log("Choice 1")
+     break;
+   case choice2:
+     console.log("Choice 2")
+     break;
+   default:
+     console.log("No choice")
+}
+```
