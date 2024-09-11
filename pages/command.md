@@ -159,4 +159,6 @@ print(minOf(10, 20, 30))
 ```
 #### Regular Expressions
 ```javascript
-myText.change("World!",
+myText.change("World!", "There!")
+// myText.replace("World", "There!");
+```
