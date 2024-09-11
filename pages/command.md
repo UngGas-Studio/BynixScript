@@ -76,6 +76,16 @@ myElement.design = "color: green;"
 myElement.design.color = "green"
 // myElement.design.color = "green";
 ```
+```javascript
+if myText.is_value === "There!")
+   print("myText value is 'There!'")
+end:
+
+// Translate to
+if (myText.value === "There!") {
+   console.log("myText value is 'There!');
+}
+```
 #### Control Flow
 ```javascript
 match choice:
