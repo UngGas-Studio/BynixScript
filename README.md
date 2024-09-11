@@ -28,15 +28,15 @@ bsp path/to/script.bs
 ### Using clone repository
 Run a BynixScript file:
 ```
-node bsr.js path/to/script.bs
+node bin/bsr.js path/to/script.bs
 ```
 Compile a BynixScript file:
 ```
-node bst.js path/to/script.bs
+node bin/bst.js path/to/script.bs
 ```
 To print a BynixScript file to console:
 ```
-node bsp.js path/to/script.bs
+node bin/bsp.js path/to/script.bs
 ```
 ## Extension
 If you want a extension, you have two options :
