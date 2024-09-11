@@ -94,7 +94,35 @@ end:
 if (myElement.is_design.color === "green") {
    console.log("myElement color is 'green'");
 }
+
+if myElement.is_action === "checked":
+   print("Checked!")
+end:
+
+// Translate to
+if (myElement.checked) {
+   print("Checked");
+}
+
+if myElement.is_have === "required":
+   print("Have required!")
+end:
+
+// Translate to
+if (myElement.required) {
+   print("Have required")
+}
 ```
+- is_action
+   - checked
+   - selected
+   - open
+- is_have
+   - required
+   - readonly
+   - autofocus
+   - disabled
+   - multiple
 #### Control Flow
 ```javascript
 match choice:
@@ -149,7 +177,7 @@ print(roundUp(4.2))
 // console.log(Math.ceil(4.2));
 
 print(roundDown(4, 7))
-// console.log(Math.fllor(4, 7));
+// console.log(Math.floor(4, 7));
 
 print(maxOf(10, 20, 30))
 // console.log(Math.max(10, 20, 30));
