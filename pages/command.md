@@ -101,7 +101,7 @@ end:
 
 // Translate to
 if (myElement.checked) {
-   print("Checked");
+   console.log("Checked");
 }
 
 if myElement.is_have === "required":
@@ -110,7 +110,7 @@ end:
 
 // Translate to
 if (myElement.required) {
-   print("Have required")
+   console.log("Have required")
 }
 ```
 - is_action
