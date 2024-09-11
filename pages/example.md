@@ -1,7 +1,7 @@
 # Example BynixScript
 
 ## Example 1: Simple Conditional Statement
-```bynixscript
+```javascript
 var num = 10
 
 if num > 10:
@@ -14,7 +14,7 @@ end:
 ```
 ### Explanation:
 This code checks the value of ``num``. If ``num`` is greater than 10, it prints "bigger than ten." If ``num`` is less than 10, it prints "smaller than ten." Otherwise, it prints "is ten."
-```bynixscript
+```javascript
 const input = getElement(".input")
 
 function send():
@@ -28,7 +28,7 @@ end:
 ### Explanation:
 This code defines a ``send()`` function that checks the value of the ``input`` element. If the value is "hello," it prints "Input is 'hello'." Otherwise, it prints "Input is not 'hello'."
 ## Example 3: Element Style and Conditional Check
-```bynixscript
+```javascript
 const element = getElement(".element")
 element.design.color = "red"
 
@@ -39,19 +39,18 @@ end:
 ### Explanation:
 This code selects an element with the class ``.element`` and changes its text color to red. It then checks whether the color of the element is red. If the condition is true, it prints "color is red."
 ## Example 4: Creating and Managing Elements
-```bynixscript
+```javascript
 const myElement = createElement("div")
-myElement.manageText("Hello World!")
+myElement.text = "Hello World!"
 body.addElement(myElement)
 ```
 ### Explanation:
 This code creates a new ``div`` element, adds the text "Hello World!" to it, and then inserts the ``div`` element into the ``body`` of the document.
 ## Example 5: Accessing and Printing an Element's Text
-```bynixscript
-const h1 = getElement(".h1")
-h1.manageText.get
-
-print(h1)
+```javascript
+for i=0 to 10:
+   print("Loop to " + i)
+end:
 ```
 ### Explanation:
-This code selects the ``h1`` element with the class ``.h1``, retrieves its text content using ``manageText.get``, and prints the element along with its contents.
+This code will create a loop from 0 to 10 with ``i`` as index.
