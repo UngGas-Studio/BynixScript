@@ -1,5 +1,5 @@
-# Use On Website
-You can run BynixScript on your website by calling the cdn owned by BynixScript
+# How to use in website Guide
+
 
 ### BynixScript CDN(Code Delivery Network)
 Version: 
