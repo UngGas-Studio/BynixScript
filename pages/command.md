@@ -83,15 +83,15 @@ end:
 
 // Translate to
 if (myText.value === "There!") {
-   console.log("myText value is 'There!');
+   console.log("myText value is 'There!'");
 }
 
-if myElement.is_style.color === "green")
+if myElement.is_design.color === "green"
    print("myElement color is 'green'")
 end:
 
 // Translate to
-if (myElement.is_design.color === "green") {
+if (myElement.style.color === "green") {
    console.log("myElement color is 'green'");
 }
 
