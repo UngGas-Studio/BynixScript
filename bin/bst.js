@@ -27,11 +27,12 @@ if (locate.endsWith('.bs') || locate.endsWith('.bynixscript')) {
 
   let blockStack = [];
   // Semua code replace yang Anda miliki
-  code = code.replace(/func\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\(([^)]*)\):\n\s+([.\n]+)/g, (match, p1, p2, p3) => `function ${p1}(${p2}) {\n    ${p3}`);
-  code = code.replace(/ elif\s+(.+?):\n\s+(.+?)/g, (match, p1, p2) => `} else if (${p1}) {\n    ${p2}`);
-  code = code.replace(/if\s+(.+?):\n\s+([^\[\]\(\)\n]+)/g, (match, p1, p2) => `if (${p1}) \n{    ${p2}`);
+  code = code.replace(/func\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\(([^)]*)\):/g, (match, p1, p2) => `function ${p1}(${p2}) {`);
+  code = code.replace(/ elif\s+(.+?):/g, (match, p1) => `} else if (${p1}) {`);
+  code = code.replace(/if\s+(.+?):/g, (match, p1) => `if (${p1}) \n{`);
   code = code.replace(/else:\n\s+(.+)/g, (match, p1) => `} else {\n    ${p1}`);
   code = code.replace(/forEach\((.+?)\)\:/g, (match, p1) => `forEach(${p1} => {`);
+  code = code.replace(/forEach\((.+?)\s=>\s(.+?)\)/g, (match, p1, p2) => `forEach(${p1} => ${p2})`);
   code = code.replace(/var\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*=\s*(.+?);/g, (match, p1, p2) => `var ${p1} = ${p2};`);
   code = code.replace(/const\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*=\s*(.+?);/g, (match, p1, p2) => `var ${p1} = ${p2};`);
   code = code.replace(/print\((.+?)\)/g, (match, p1) => `console.log(${p1});`);
