@@ -10,7 +10,7 @@ Simply put, BynixScript is a programming language created by UngGas Studio. For 
 To run BynixScript, you have two options:
 - [Non-Website](docs/non-website.md): **To run BynixScript on npm or clone repository**
 - [Website](docs/website.md): **To run BynixScript on your website**
-- [Changelog](docs/changelog.md/#Update-Changelog): **Changelog of the BynixScript update**
+- [Changelog](https://github.com/UngGasStudio/BynixScript/releases): **Changelog of the BynixScript update**
 ## Get Started
 ### Using npm
 Run a BynixScript file:
@@ -42,7 +42,7 @@ node bin/bsp.js path/to/script.bs
 If you want a extension, you have two options :
 - [BynixScript Extension](example.com): **To improve the experience of using BynixScript in VSCode**
 - [BynixScript Acode](docs/acode-plugin.md): **To improve the experience of using BynixScript in Acode**
-- [Changelog](docs/changelog.md/#Plungin-or-Extension-Changelog): **Changelog of plugin/extension updates**
+- [Changelog](https://github.com/UngGasStudio/BynixScript/releases): **Changelog of plugin/extension updates**
 ## Example and Command
 You can see examples at [example](docs/example.md) and commands at [command](docs/command.md)
 ## Table of content
