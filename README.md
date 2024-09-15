@@ -3,14 +3,14 @@ Simply put, BynixScript is a programming language created by UngGas Studio. For 
 
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Website](https://img.shields.io/badge/official-website-blue)](https://unggasstudio.github.io/bynixscript/)
-[![Documentation](https://img.shields.io/badge/Documentation-8A2BE2)](pages/documentation.md)
+[![Documentation](https://img.shields.io/badge/Documentation-8A2BE2)](docs/documentation.md)
 [![Youtube](https://img.shields.io/badge/YouTube-Channel-orange)](example.com)
 
 ## Installation
 To run BynixScript, you have two options:
-- [Non-Website](pages/non-website.md): **To run BynixScript on npm or clone repository**
-- [Website](pages/website.md): **To run BynixScript on your website**
-- [Changelog](pages/changelog.md/#Update-Changelog): **Changelog of the BynixScript update**
+- [Non-Website](docs/non-website.md): **To run BynixScript on npm or clone repository**
+- [Website](docs/website.md): **To run BynixScript on your website**
+- [Changelog](docs/changelog.md/#Update-Changelog): **Changelog of the BynixScript update**
 ## Get Started
 ### Using npm
 Run a BynixScript file:
@@ -41,10 +41,10 @@ node bin/bsp.js path/to/script.bs
 ## Extension
 If you want a extension, you have two options :
 - [BynixScript Extension](example.com): **To improve the experience of using BynixScript in VSCode**
-- [BynixScript Acode](pages/acode-plugin.md): **To improve the experience of using BynixScript in Acode**
-- [Changelog](pages/changelog.md/#Plungin-or-Extension-Changelog): **Changelog of plugin/extension updates**
+- [BynixScript Acode](docs/acode-plugin.md): **To improve the experience of using BynixScript in Acode**
+- [Changelog](docs/changelog.md/#Plungin-or-Extension-Changelog): **Changelog of plugin/extension updates**
 ## Example and Command
-You can see examples at [example](pages/example.md) and commands at [command](pages/command.md)
+You can see examples at [example](docs/example.md) and commands at [command](docs/command.md)
 ## Table of content
 - [What Is BynixScript](#What-Is-BynixScript)
   - [Installation](#Installation)
@@ -54,3 +54,4 @@ You can see examples at [example](pages/example.md) and commands at [command](pa
   - [Extension](#Extension)
   - [Example and Command](#Example-and-Command)
   - [Table of content](#Table-of-content)
+  
