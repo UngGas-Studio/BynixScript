@@ -28,14 +28,25 @@ if (locate.endsWith('.bs') || locate.endsWith('.bynixscript')) {
 
   let blockStack = [];
   // Semua code replace yang Anda miliki
-  code = code.replace(/func\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\(([^)]*)\):/g, (match, p1, p2) => `function ${p1}(${p2}) {\n`);
-  code = code.replace(/ elif\s+(.+?):/g, (match, p1) => `} else if (${p1}) {\n`);
-  code = code.replace(/if\s+(.+?):/g, (match, p1) => `if (${p1}) {\n`);
-  code = code.replace(/else:/g, "} else {\n");
+  code = code.replace(/func\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\(([^)]*)\):/g, (match, p1, p2) => `function ${p1}(${p2}) {`);
+  code = code.replace(/ elif\s+(.+?):/g, (match, p1) => `} else if (${p1}) {`);
+  code = code.replace(/if\s+(.+?):/g, (match, p1) => `if (${p1}) {`);
+  code = code.replace(/else:/g, "} else {");
   code = code.replace(/forEach\((.+?)\)\:/g, (match, p1) => `forEach(${p1} => {`);
+  code = code.replace(/forEach\((.+?)\s=>\s(.+?)\)/g, (match, p1, p2) => `forEach(${p1} => ${p2})`);
   code = code.replace(/var\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*=\s*(.+?);/g, (match, p1, p2) => `var ${p1} = ${p2};`);
   code = code.replace(/const\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*=\s*(.+?);/g, (match, p1, p2) => `var ${p1} = ${p2};`);
-  code = code.replace(/print\((.+?)\)/g, (match, p1) => `console.log(${p1});`);
+  code = code.replace(/print(\.[a-zA-Z]+)?\((.+?)\)/g, (match, p1, p2) => {
+    const type = p1 || '';
+
+    if (type.includes(".info") || type.includes(".debug") || type.includes(".trace") || type.includes(".warn") || type.includes(".assert")) {
+      return `console${p1}(${p2});`
+    } else if (type.includes(".err")) {
+      return `console.error(${p2});`
+    } else {
+      return `console.log(${p2});`
+    }
+  });
   code = code.replace(/touch\((.+?)\)/g, (match, p1) => `alert(${p1});`);
   code = code.replace(/ask\((.+?)\)/g, (match, p1) => `prompt(${p1});`);
   code = code.replace(/confirm\((.+?)\)/g, (match, p1) => `confirm(${p1});`);
