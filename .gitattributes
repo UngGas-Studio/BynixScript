@@ -1,1 +1,2 @@
-*.bs linguist-language=JavaScript
+*.bs linguist-language=BynixScript
+*.bynixscript linguist-language=BynixScript
