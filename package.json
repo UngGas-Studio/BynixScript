@@ -21,10 +21,13 @@
     },
     "Keywords": [
       "Languages",
-      "JavaScript"
+      "JavaScript",
+      "BynixScript",
+      "Programming Languages"
       ],
     "devDependencies": {
         "eslint": "^7.32.0",
         "jest": "^27.5.1"
-    }
+    },
+    "repository": "https://github.com/UngGasStudio/BynixScript/"
 }
