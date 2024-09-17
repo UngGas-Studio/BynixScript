@@ -67,6 +67,7 @@ if (locate.endsWith('.bs') || locate.endsWith('.bynixscript')) {
   code = code.replace(/(.+?)\*\*/g, (match, p1) => `${p1}*/`);
   code = code.replace(/is_includes\s===\s([a-zA-Z0-9"'`]+)/g, (match, p1) => `includes(${p1})`);
   code = code.replace(/is_matched\s===\s"(.+?)"/g, (match, p1) => `match(${p1})`);
+  code = code.replace(/is_matched\s===\s'(.+?)'/g, (match, p1) => `match(${p1})`);
   code = code.replace(/is_value\s===\s([a-zA-Z0-9"'`]+)/g, (match, p1) => `value === ${p1}`);
   code = code.replace(/is_design.(.+?)\s===\s([a-zA-Z0-9"'`]+)/g, (match, p1, p2) => `style.${p1} === ${p2}`);
   code = code.replace(/(.+?)\.design\.(.+?)\s=\s(.+?)/g, (match, p1, p2, p3) => `${p1}.style.${p2} = ${p3}`);
