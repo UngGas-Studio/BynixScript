@@ -46,6 +46,24 @@ confirm("Are you sure you want to exit?")
 ```javascript
 print("Hello World!")
 // console.log("Hello World!");
+
+print.err("Validation error")
+// console.error("Validation error")
+
+print.warn("Warning alert")
+// console.warn("Warning alert")
+
+print.info("Information")
+// console.info("Information")
+
+print.debug("Debugging")
+// console.debug("Debugging")
+
+print.trace("Trace print")
+// console.trace("Trace print")
+
+print.assert("Assert print")
+// console.assert("Assert print")
 ```
 #### DOM Manipulation
 ```javascript
