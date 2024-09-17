@@ -42,7 +42,7 @@ node bin/bsp.js path/to/script.bs
 ## Extension
 If you want a extension, you have two options :
 - [BynixScript Extension](example.com): **To improve the experience of using BynixScript in VSCode**
-- [BynixScript Acode](docs/acode-plugin.md): **To improve the experience of using BynixScript in Acode**
+- [BynixScript Plugin](docs/acode-plugin.md): **To improve the experience of using BynixScript in Acode**
 - [Changelog](https://github.com/UngGasStudio/BynixScript/releases): **Changelog of plugin/extension updates**
 ## Example and Command
 You can see examples at [example](docs/example.md) and commands at [command](docs/command.md)
