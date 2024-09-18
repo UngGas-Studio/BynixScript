@@ -1,6 +1,6 @@
 {
     "name": "bynixscript",
-    "version": "0.0.2-next",
+    "version": "0.0.3-next",
     "description": "This is new Programming Language.",
     "scripts": {
         "test": "node bsr.js $1"
@@ -9,9 +9,11 @@
         "test": "npm run test"
     },
     "bin": {
+        "b!help": "./help.js",
         "bsr": "./bsr.js",
         "bst": "./bst.js",
-        "bsp": "./bsp.js"
+        "bsp": "./bsp.js",
+        "bsd": "./bsd.js"
     },
     "author": "UngGasStudio",
     "license": "MIT",

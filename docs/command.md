@@ -113,6 +113,24 @@ if (myElement.style.color === "green") {
    console.log("myElement color is 'green'");
 }
 
+if myName.is_start === "John":
+  print("My name starts with 'John'")
+end:
+
+// Translate to
+if (myName.startsWith("John")) {
+  console.log("My name starts with 'John'");
+}
+
+if myName.is_end === "Stones":
+  print("My name ends with 'Stones'")
+end:
+
+// Translate to
+if (myName.endsWith("Stones")) {
+  console.log("My name ends with 'Stones'");
+}
+
 if myElement.is_action === "checked":
    print("Checked!")
 end:
@@ -208,3 +226,30 @@ print(minOf(10, 20, 30))
 myText.change("World!", "There!")
 // myText.replace("World", "There!");
 ```
+#### Operators
+##### Arithmetic:
+``+``: summation
+
+``-``: subtraction
+
+``*``: multiplication
+
+``/``: distribution
+
+``%``: modulus
+
+``++``: increments
+
+``--``: decrement
+##### Comparison
+``=``: assignment
+
+``==``: equality
+
+``===``: strict equality
+##### Logic
+``&&``: And
+
+``||``: Or
+
+``!``: Not

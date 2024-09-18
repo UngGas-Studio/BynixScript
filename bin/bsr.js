@@ -2,6 +2,11 @@
 const fs = require('fs');
 const vm = require('vm');
 
+const sandbox = {
+  require: require,
+  console: console,
+};
+
 const locate = process.argv[2];
 
 if (!locate) {
@@ -60,7 +65,15 @@ if (locate.endsWith('.bs') || locate.endsWith('.bynixscript')) {
   code = code.replace(/createElement\((.+?)\)/g, (match, p1) => `document.createElement(${p1});`);
   code = code.replace(/\.addClass\((.+?)\)/g, (match, p1) => `.classList.add(${p1})`);
   code = code.replace(/([^\s].+)\.addElement\((.+?)\)/g, (match, p1, p2) => `document.${p1}.appendChild(${p2});`);
-  code = code.replace(/listener\((.+?)\)\:/g, (match, p1) => `document.addEventListener(${p1}, function() {`);
+  code = code.replace(/(.+?)\.listener\((.+?)\)\:/g, (match, p1, p2) => {
+    const type = p1 || '';
+    
+    if (type.includes("document")) {
+      return `document.addEventListener(${p2}, function() {`;
+    } else {
+      return `${p1}.addEventListener(${p2}, () => {`;
+    }
+  });
   code = code.replace(/(.+?)\.change\((.+)\)/g, (match, p1, p2) => `${p1}.replace(${p2});`);
   code = code.replace(/(.+?)\.text/g, (match, p1) => `${p1}.textContent`)
   code = code.replace(/(.+?)\.text = (.+?)/g, (match, p1, p2) => `${p1}.textContent = ${p2}`);
@@ -68,6 +81,8 @@ if (locate.endsWith('.bs') || locate.endsWith('.bynixscript')) {
   code = code.replace(/\*\*(.+?)/g, (match, p1) => `/*${p1}`);
   code = code.replace(/(.+?)\*\*/g, (match, p1) => `${p1}*/`);
   code = code.replace(/is_includes\s===\s([a-zA-Z0-9"'`]+)/g, (match, p1) => `includes(${p1})`);
+  code = code.replace(/is_start\s===\s([a-zA-Z0-9"'`!?*#@$_&-+|.,:;=×÷%/]+)/g, (match, p1) => `startsWith(${p1})`);
+  code = code.replace(/is_end\s===\s([a-zA-Z0-9"'`!?*#@$_&-+|.,:;=×÷%/]+)/g, (match, p1) => `endsWith(${p1})`);
   code = code.replace(/is_matched\s===\s"(.+?)"/g, (match, p1) => `match(${p1})`);
   code = code.replace(/is_matched\s===\s'(.+?)'/g, (match, p1) => `match(${p1})`);
   code = code.replace(/is_value\s===\s([a-zA-Z0-9"'`]+)/g, (match, p1) => `value === ${p1}`);
@@ -96,7 +111,7 @@ if (locate.endsWith('.bs') || locate.endsWith('.bynixscript')) {
   code = code.replace(/end\:(?!\d)/g, "}");
   code = code.replace(/end\:(.+?)\:/g, (match, p1) => `}, ${p1});`);
   
-  vm.runInThisContext(code);
+  vm.runInNewContext(code, sandbox);
   console.log("Running: " + locate);
 } else {
   console.log("Cannot running: " + locate);
