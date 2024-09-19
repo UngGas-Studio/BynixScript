@@ -253,3 +253,8 @@ myText.change("World!", "There!")
 ``||``: Or
 
 ``!``: Not
+####  Module Management
+```javascript
+const example = require('example')
+// const example = require('example')
+```
