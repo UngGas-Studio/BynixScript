@@ -26,6 +26,10 @@ To print a BynixScript file to console:
 ```
 bsp path/to/script.bs
 ```
+To delete a file
+```
+bsd path/to/script.bs
+```
 ### Using clone repository
 Run a BynixScript file:
 ```
@@ -38,6 +42,10 @@ node bin/bst.js path/to/script.bs
 To print a BynixScript file to console:
 ```
 node bin/bsp.js path/to/script.bs
+```
+To delete a file
+```
+node bin/bsd.js path/to/script.bs
 ```
 ## Extension
 If you want a extension, you have two options :
