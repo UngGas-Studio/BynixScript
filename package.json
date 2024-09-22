@@ -1,6 +1,6 @@
 {
     "name": "bynixscript",
-    "version": "0.0.3-next",
+    "version": "0.0.4-next",
     "description": "This is new Programming Language.",
     "scripts": {
         "test": "node bsr.js $1"

@@ -253,8 +253,21 @@ myText.change("World!", "There!")
 ``||``: Or
 
 ``!``: Not
-####  Module Management
+#### Module Management
 ```javascript
 const example = require('example')
 // const example = require('example')
+```
+#### Type Conversion Functions
+```javascript
+const a = num(b)
+// const a = Number(b);
+```
+```javascript
+const c = str(d)
+// const c = str(d);
+```
+```javascript
+const e = int(f)
+// const e = parseInt(f);
 ```

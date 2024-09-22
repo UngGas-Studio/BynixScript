@@ -1,6 +1,6 @@
 const request = process.argv[2]
 if (request === "-v") {
-	console.log("0.0.3-next");
+	console.log("0.0.4-next");
 } else {
   console.log("<=====[ BynixScript ]=====>");
   console.log(" ");

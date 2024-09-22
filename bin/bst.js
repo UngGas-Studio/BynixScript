@@ -41,6 +41,8 @@ if (locate.endsWith('.bs') || locate.endsWith('.bynixscript')) {
       return `console${p1}(${p2});`
     } else if (type.includes(".err")) {
       return `console.error(${p2});`
+    } else if (match.includes("/")) {
+      return match;
     } else {
       return `console.log(${p2});`
     }
@@ -67,7 +69,8 @@ if (locate.endsWith('.bs') || locate.endsWith('.bynixscript')) {
       return `${p1}.addEventListener(${p2}, () => {`;
     }
   });
-  code = code.replace(/(.+?)\.change\((.+)\)/g, (match, p1, p2) => `${p1}.replace(${p2});`);
+  code = code.replace(/(.+?)\.change\((.+?), \((.+?)\)\)\:/g, (match, p1, p2, p3) => `${p1}.replace(${p2}, (${p3}) => {`)
+  code = code.replace(/(.+?)\.change\((.+)\)/g, (match, p1, p2) => `${p1}.replace(${p2})`);
   code = code.replace(/(.+?)\.text/g, (match, p1) => `${p1}.textContent`)
   code = code.replace(/(.+?)\.text = (.+?)/g, (match, p1, p2) => `${p1}.textContent = ${p2}`);
   code = code.replace(/(?<!["'`])#([.+?]\s\n)/g, (match, p1) => `//${p1}`);
@@ -100,6 +103,13 @@ if (locate.endsWith('.bs') || locate.endsWith('.bynixscript')) {
   code = code.replace(/case (.+?):\n(.+?)/g, (match, p1, p2) => `case ${p1}: \n${p2}`);
   code = code.replace(/break:/g, "break;");
   code = code.replace(/([^\s].+?)\.image\s*=\s*(['"`][^'"`]*['"``])/g, (match, p1, p2) => `image(${p1}, ${p2})`);
+  code = code.replace(/process\.argv\[(\d+)\]/g, (match, p1) => {
+    var a = Number(p1) + 0;
+    return `process.argv[${a}]`;
+  });
+  code = code.replace(/int\((.+?)\)/g, (match, p1) => `parseInt(${p1})`);
+  code = code.replace(/num\((.+?)\)/g, (match, p1) => `Number(${p1})`);
+  code = code.replace(/str\((.+?)\)/g, (match, p1) => `String(${p1})`);
   code = code.replace(/end\:\:/g, "});");
   code = code.replace(/end\:(?!\d)/g, "}");
   code = code.replace(/end\:(.+?)\:/g, (match, p1) => `}, ${p1});`);
