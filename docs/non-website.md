@@ -9,19 +9,6 @@ To install BynixScript globally using npm, run the following command:
 npm install -g BynixScript
 ```
 
-### Updating BynixScript
-If you want to update BynixScript to the latest stable version, use:
-
-```
-npm install -g BynixScript@latest
-```
-
-If you prefer using the unstable (next) version for testing new features, use:
-
-```
-npm install -g BynixScript@next
-```
-
 ## Cloning the Repository
 
 Alternatively, you can clone the BynixScript repository directly from GitHub:

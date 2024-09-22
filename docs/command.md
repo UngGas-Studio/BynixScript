@@ -265,7 +265,7 @@ const a = num(b)
 ```
 ```javascript
 const c = str(d)
-// const c = str(d);
+// const c = String(d);
 ```
 ```javascript
 const e = int(f)
