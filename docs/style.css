@@ -1,5 +1,3 @@
-
-/* Reset and Basic Styles */
 * {
     margin: 0;
     padding: 0;
@@ -55,7 +53,6 @@ nav ul li a {
     cursor: pointer;
 }
 
-/* Hero Section */
 .hero {
     height: 100vh;
     display: flex;
@@ -103,7 +100,6 @@ section {
     margin: 0 auto;
 }
 
-/* Mobile Menu Styles */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -129,7 +125,6 @@ section {
     }
 }
 
-/* Responsive Design */
 @media (max-width: 1024px) {
     .features {
         flex-direction: column;
@@ -175,7 +170,6 @@ section {
     }
 }
 
-/* Contact Us Section */
 .contact-section {
     background-color: #f7f7f7;
     padding: 60px 20px;
@@ -241,7 +235,6 @@ section {
     background-color: #7ffb63;
 }
 
-/* Hamburger Menu Style */
 .hamburger {
     display: none;
     font-size: 24px;
@@ -333,6 +326,7 @@ section {
         display: block;
         cursor: pointer;
     }
+<<<<<<< HEAD
     
     .editor {
       font-size: 1000%;
@@ -355,11 +349,26 @@ section {
 }
 
 .copy-btn {
+=======
+
+    .example-btn {
+        left: 45%;
+    }
+}
+
+.copy-btn {
+    position: absolute;
+>>>>>>> 778ead8626aceb34e53f86d15d76f11e2b8c46b2
     background-color: #28ca04;
     color: white;
 }
 
 .example-btn {
+<<<<<<< HEAD
+=======
+    position: absolute;
+    left: 25%;
+>>>>>>> 778ead8626aceb34e53f86d15d76f11e2b8c46b2
     background-color: #28ca04;
     color: white;
 }
