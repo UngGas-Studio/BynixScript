@@ -326,6 +326,10 @@ section {
         display: block;
         cursor: pointer;
     }
+
+    .example-btn {
+        left: 45%;
+    }
 }
 
 .copy-btn {
