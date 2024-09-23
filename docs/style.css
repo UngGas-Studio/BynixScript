@@ -57,13 +57,12 @@ nav ul li a {
 
 /* Hero Section */
 .hero {
-    background: url('https://source.unsplash.com/1600x900/?code') no-repeat center center/cover;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #fff;
+    color: black;
     padding: 0 20px;
 }
 
@@ -334,4 +333,38 @@ section {
         display: block;
         cursor: pointer;
     }
+}
+
+.copy-btn {
+    position: absolute;
+    /*right: 10px;
+    top: 10px;*/
+    background-color: #28ca04;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.copy-btn:hover {
+    background-color: #25bf03;
+}
+
+.example-btn {
+    position: absolute;
+    left: 88px;
+    /*top: 10px;*/
+    background-color: #28ca04;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.example-btn:hover {
+    text-decoration: underline; /* Efek hover */
 }

@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BynixScript - Homepage</title>
+    <title>BynixScript - Installation</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <link rel="stylesheet" href="language.css">
 </head>
 <body>
 
@@ -29,16 +28,18 @@
 
     <div class="hero">
         <div class="hero-content">
-            <h1>Welcome to BynixScript</h1>
-            <p>Want easy syntax? Want an easy-to-use programming language?</p>
-            <a href="download.html" class="btn">Download Now!</a>
+            <h1>Download BynixScript</h1>
+            <p>If you want to download BynixScript right now, you can do that using NPM or by cloning the BynixScript repository.</p>
         </div>
     </div>
 
-    <section id="about" class="about-section">
+    <section id="using-npm" class="using-npm-sectiom">
         <div class="container">
-            <h2>About BynixScript</h2>
-            <p>BynixScript is a programming language created for the purpose of being used in website development and development outside of the website.</p>
+            <h2>Using NPM</h2>
+            <p>Make sure you have <a href="https://nodejs.org/">NodeJS</a> and NPM. Then run the following command:</p>
+            <pre><code class="language-language">
+npm install -g bynixscript
+            </code></pre>
         </div>
     </section>
 
@@ -66,8 +67,7 @@
       <div class="container">
         <h2>Example</h2>
         <p>This is a simple example of what can be done with BynixScript.</p>
-        <pre><button class="copy-btn">Copy</button><button class="example-btn">example 2 ></button>
-          <code class="language-bynixscript" id="code-block">
+        <pre><code class="language-javascript">
 var myAge = contentAge(14)
 var myName = "Aliez"
 var yourAge = contentAge(14)
@@ -141,6 +141,5 @@ check("year of birth", 2024)
     </footer>-->
 
     <script src="script.js"></script>
-    <script src="language.js"></script>
 </body>
 </html>
