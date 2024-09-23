@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BynixScript - Installation</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
@@ -33,13 +34,16 @@
         </div>
     </div>
 
-    <section id="using-npm" class="using-npm-sectiom">
+    <section id="using-npm" class="using-npm-section">
         <div class="container">
             <h2>Using NPM</h2>
             <p>Make sure you have <a href="https://nodejs.org/">NodeJS</a> and NPM. Then run the following command:</p>
-            <pre><code class="language-language">
-npm install -g bynixscript
-            </code></pre>
+            <div id="markdown-content">
+              ```
+              npm install -g bynixscript
+              ```
+            </div>
+            <div id="html-output"></div>
         </div>
     </section>
 
@@ -141,5 +145,10 @@ check("year of birth", 2024)
     </footer>-->
 
     <script src="script.js"></script>
+<script>
+  const markdownContent = document.getElementById('markdown-content').innerText;
+  const convertedHtml = marked(markdownContent);
+  document.getElementById('html-output').innerHTML = convertedHtml;
+</script>
 </body>
 </html>
