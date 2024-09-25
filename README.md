@@ -3,14 +3,14 @@ Simply put, BynixScript is a programming language created by UngGas Studio. For 
 
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Website](https://img.shields.io/badge/official-website-blue)](https://unggasstudio.github.io/bynixscript/)
-[![Documentation](https://img.shields.io/badge/Documentation-8A2BE2)](docs/documentation.md)
+[![Documentation](https://img.shields.io/badge/Documentation-8A2BE2)](docs/markdown/documentation.md)
 [![Youtube](https://img.shields.io/badge/YouTube-Channel-orange)](https://youtube.com/@unggas-studio?si=rwzB7AXjr-jCqg_J)
 [![Package](https://img.shields.io/npm/dw/bynixscript)](https://www.npmjs.com/package/bynixscript?activeTab=readme)
 
 ## Installation
 To run BynixScript, you have two options:
-- [Non-Website](docs/non-website.md): **To run BynixScript on npm or clone repository**
-- [Website](docs/website.md): **To run BynixScript on your website**
+- [Non-Website](docs/markdown/non-website.md): **To run BynixScript on npm or clone repository**
+- [Website](docs/markdown/website.md): **To run BynixScript on your website**
 - [Changelog](https://github.com/UngGasStudio/BynixScript/releases): **Changelog of the BynixScript update**
 ## Get Started
 ### Using npm
@@ -50,10 +50,10 @@ node bin/bsd.js path/to/script.bs
 ## Extension
 If you want a extension, you have two options :
 - [BynixScript Extension](https://github.com/UngGasStudio/BynixScript-Extension): **To improve the experience of using BynixScript in VSCode**
-- [BynixScript Plugin](docs/acode-plugin.md): **To improve the experience of using BynixScript in Acode**
+- [BynixScript Plugin](docs/markdown/acode-plugin.md): **To improve the experience of using BynixScript in Acode**
 - [Changelog](https://github.com/UngGasStudio/BynixScript/releases): **Changelog of plugin/extension updates**
 ## Example and Command
-You can see examples at [example](docs/example.md) and commands at [command](docs/command.md)
+You can see examples at [example](docs/markdown/example.md) and commands at [command](docs/markdown/command.md)
 ## Table of content
 - [What Is BynixScript](#What-Is-BynixScript)
   - [Installation](#Installation)
