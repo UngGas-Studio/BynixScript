@@ -1,31 +1,20 @@
 #!/usr/bin/env node
 const fs = require('fs');
+const vm = require('vm');
+const path = require('path');
 
-const locate = process.argv[2];
+const sandbox = {
+  require: require,
+  console: console,
+  process: process,
+};
 
-if (!locate) {
-  console.error("Error: File path not provided.");
-  process.exit(1);
-}
-
-const lastDotIndex = locate.lastIndexOf('.');
-if (lastDotIndex === -1) {
-  console.error("Error: Invalid file extension.");
-  process.exit(1);
-}
-
-const end = locate.substring(lastDotIndex + 1);
-
-if (locate.endsWith('.bs') || locate.endsWith('.bynixscript')) {
-  let code = '';
-  let name = locate
-  name = name.replace(/(.+?)\.js/g, ".bs");
-  name = name.replace(/(.+?)\.bynixscript/g, ".javascript");
-
-  const command = fs.readFileSync(locate, 'utf-8');
+const filePath = path.join(__dirname, '/bin/bst.bs');
+const command = fs.readFileSync(filePath, 'utf-8');
   code = command;
 
   let blockStack = [];
+  // Semua code replace yang Anda miliki
   code = code.replace(/func\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\(([^)]*)\):/g, (match, p1, p2) => `function ${p1}(${p2}) {`);
   code = code.replace(/elif\s+(.+?):/g, (match, p1) => `} else if (${p1}) {`);
   code = code.replace(/if\s+(.+?):/g, (match, p1) => `if (${p1}) {`);
@@ -114,13 +103,4 @@ if (locate.endsWith('.bs') || locate.endsWith('.bynixscript')) {
   code = code.replace(/end\:(?!\d)/g, "}");
   code = code.replace(/end\:(.+?)\:/g, (match, p1) => `}, ${p1});`);
   
-  fs.writeFile(`${name}.js`, code, (err) => {
-    if (err) {
-      console.error("Error writing to file:", err);
-      process.exit(1);
-    }
-    console.log(`Conversion successful: ${name}.js`);
-  });
-} else {
-  console.error("Error: Unsupported file type. Please provide a .bs or .bynixscript file.");
-}
+  vm.runInNewContext(code, sandbox);

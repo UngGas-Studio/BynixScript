@@ -271,3 +271,105 @@ const c = str(d)
 const e = int(f)
 // const e = parseInt(f);
 ```
+#### Object-Oriented Programming
+```javascript
+class className:
+  # your code here
+end:
+
+// Translate to
+class className {
+  // your code here
+}
+```
+##### Inheritance
+```javascript
+class car1 extends className:
+  # your code here
+end:
+
+// Translate to
+class car1 extends className {
+  // your code here
+}
+```
+##### Object Initialization
+```javascript
+constructor(name):
+  # your code here
+end:
+
+// Translate to
+constructor(name) {
+  // your code here
+}
+```
+##### Object Creation
+```javascript
+const Dog = new className("Buddy")
+// class dog = new className("Buddy");
+```
+#### Type Checking
+```javascript
+if isNum(variable):
+  print("Type: number")
+end:
+
+// Translate to
+if (typeof variable === "number") {
+  console.log("Type: number");
+}
+
+if isStr(variable):
+  print("Type: string")
+end:
+
+// Translate to
+if (typeof variable === "string") {
+  console.log("Type: string");
+}
+
+if isNull(variable):
+  print("Value: null")
+end:
+
+// Translate to
+if (variable === null) {
+  console.log("Value: null");
+}
+```
+#### Functional Programming
+```javascript
+const numbers = [1, 2, 3, 4, 5]
+const result = numbers.map(num):
+  return num * 2
+end::
+
+// Translate to
+const numbers = [1, 2, 3, 4, 5];
+const result = numbers.map(function(num) {
+  return num * 2;
+});
+
+const ages = [12, 18, 20, 10, 25]
+const result = ages.filter(age):
+  return age >= 18
+end::
+
+// Translate to
+const ages = [12, 18, 20, 10, 25];
+const result = ages.filter(function(age) {
+  return age >= 18;
+});
+
+const numbers = [1, 2, 3, 4]
+const sum = numbers.reduce(total, num):
+  return total + num
+end:0:
+
+// Translate to
+const numbers = [1, 2, 3, 4, 5]
+const sum = numbers.reduce(function(total, num) {
+  return total + num;
+}, 0);
+```

@@ -1,60 +1,20 @@
-const style = document.createElement("style");
-style.textContent = `
-  bynix {
-    display: none;
-  }
-  `;
-style.classList.add("bynix-style");
-document.head.appendChild(style);
-const milown = document.createElement("script");
-const ajax = document.createElement("script");
-const fontawesome = document.createElement("link");
-const brython = document.createElement("script");
-milown.src = '<script src="https://cdn.jsdelivr.net/gh/UngGasStudio/MILOWN-Lang@main/Beta/MILOWN-Lang%200.1BETA1.js"></script>';
-ajax.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/4.0.0-beta.2/jquery.min.js"';
-fontawesome.rel = "stylesheet";
-fontawesome.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css';
-brython.type = "type/javascript";
-brython.src = 'https://cdn.jsdelivr.net/npm/brython@3.9.6/brython.min.js';
-document.head.appendChild(ajax);
-document.head.appendChild(fontawesome);
-document.head.appendChild(milown);
-document.head.appendChild(brython);
-document.addEventListener("DOMContentLoaded", function() {
-  const bynixTags = document.querySelectorAll("bynix");
-  bynixTags.forEach(tag => {
-    var code = '';
-    const src = tag.getAttribute('src');
-    
-    // Jika src ada, lakukan fetch
-    if (src) {
-      const end = src.substring(src.lastIndexOf('.') + 1);
-      
-      if (src.endsWith(".bs") || src.endsWith(".bynixscript") || src.endsWith(".mbs")) {
-        fetch(src)
-        .then(response => response.text())
-        .then(srcCode => {
-          code = srcCode;
-          executeCode(code);
-          tag.remove();
-        })
-        .catch(error => console.error('Error fetching BynixScript code:', error));
-      } else {
-        console.error("Invalid extension '." + end + "'");
-      }
-    } else {
-      // Jika src tidak ada, ambil kode dari textContent
-      code = tag.textContent;
-      executeCode(code);
-      tag.remove();
-    }
-  });
-});
+#!/usr/bin/env node
+const fs = require('fs');
+const vm = require('vm');
+const path = require('path');
 
-function executeCode(code) {
-  if (code.match(/let\s/g) || code.match(/function\s/g) || code.match(/if\s\((.+?)\)\s{/g) || code.match(/else if\s\((.+?)\)\s{/g) || code.match(/else\s{\s/g) || code.match(/console(.+?)\((.+?)\)/g) || code.match(/alert\((.+?)\)/g) || code.match(/prompt\((.+?)\)/g) || code.match(/Math\.random\((.+?)\)/g) || code.match(/Math\.floor\((.+?)\)/g) || code.match(/Math\.ceil\((.+?)\)/g) || code.match(/Math\.min\((.+?)\)/g) || code.match(/Math\.max\((.+?)\)/g) || code.match(/document\.createElement\((.+?)\)/g) || code.match(/document\.(.+?)\.appendChild\((.+?)\)/g) || code.match(/(.+?).replace\((.+?)\)/g) || code.match(/\/\//g) || code.match(/(.+?)\.textContent\s=\s(.+?)/g) || code.match(/\/\*(.+?)\*\//g) || code.match(/document\.addEventListener\((.+?), function\(\) \{/g) || code.match(/forEach\((.+?) \=\> \{/g) || code.match(/(.+?)\.includes\((.+?)\)/g) || code.match(/(.+?)\.match\((.+?)\)/g) || code.match(/(.+?)\.value ===/g) || code.match(/(.+?)\.value ==/g) || code.match(/(.+?)\.value =/g) || code.match(/(.+?)\.value !===/g) || code.match(/(.+?)\.value !==/g) || code.match(/(.+?)\.value !=/g) || code.match(/(.+?)\.value >/g) || code.match(/(.+?)\.value </g) || code.match(/(.+?)\.value \=\>/g) || code.match(/(.+?)\.value <==/g) || code.match(/(.+?)\.style ===/g) || code.match(/(.+?)\.style ==/g) || code.match(/(.+?)\.style =/g) || code.match(/(.+?)\.style !===/g) || code.match(/(.+?)\.style !==/g) || code.match(/(.+?)\.style !=/g) || code.match(/(.+?)\.style >/g) || code.match(/(.+?)\.style </g) || code.match(/(.+?)\.style \=\>/g) || code.match(/(.+?)\.style <==/g) || code.match(/(.+?)\.style\.(.+?) =/g) || code.match(/(.+?)\.style =/g) || code.match(/(.+?)\.checked/g) || code.match(/(.+?)\.required/g) || code.match(/setTimeout\(function\(\) \{/g) || code.match(/setInterval\(function\(\) \{/g) || code.match(/for \((.+?)\) \{/g) || code.match(/classList\.add\((.+?)\)/g) || code.match(/switch\s\((.+?)\)/g) || code.match(/break\:/g) || code.match(/default\:/g) || code.match(/image\((.+?), (.+?)\)/g) || code.match(/class\s(.+?)\s\{/g) || code.match(/class\s(.+?)\sextends\s(.+?)\s\{/g) || code.match(/constructor(.+?)\s\{/g) || code.match(/speak(.+?)\s\{/g) || code.match(/static(.+?)\s\{/g) || code.match(/typeof\s(.+?)\s(.+?)\s(.+?)/g) || code.match(/\.map\(function\((.+?)\)\s\{/g) || code.match(/\.filter\(function\((.+?)\)\s\{/g) || code.match(/\.reduce\(function\((.+?)\)\s\{/g)) {
-    console.error(`Invalid function in your code`);
-  } else {
+const sandbox = {
+  require: require,
+  console: console,
+  process: process,
+};
+
+const filePath = path.join(__dirname, '/bin/index.bs');
+const command = fs.readFileSync(filePath, 'utf-8');
+  code = command;
+
+  let blockStack = [];
+  // Semua code replace yang Anda miliki
   code = code.replace(/func\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\(([^)]*)\):/g, (match, p1, p2) => `function ${p1}(${p2}) {`);
   code = code.replace(/elif\s+(.+?):/g, (match, p1) => `} else if (${p1}) {`);
   code = code.replace(/if\s+(.+?):/g, (match, p1) => `if (${p1}) {`);
@@ -67,13 +27,13 @@ function executeCode(code) {
     const type = p1 || '';
 
     if (type.includes(".info") || type.includes(".debug") || type.includes(".trace") || type.includes(".warn") || type.includes(".assert")) {
-      return `console${p1}(${p2})`
+      return `console${p1}(${p2});`
     } else if (type.includes(".err")) {
-      return `console.error(${p2})`
+      return `console.error(${p2});`
     } else if (match.includes("/")) {
       return match;
     } else {
-      return `console.log(${p2})`
+      return `console.log(${p2});`
     }
   });
   code = code.replace(/touch\((.+?)\)/g, (match, p1) => `alert(${p1});`);
@@ -139,38 +99,8 @@ function executeCode(code) {
   code = code.replace(/int\((.+?)\)/g, (match, p1) => `parseInt(${p1})`);
   code = code.replace(/num\((.+?)\)/g, (match, p1) => `Number(${p1})`);
   code = code.replace(/str\((.+?)\)/g, (match, p1) => `String(${p1})`);
-  code = code.replace(/(.+?)\.map\((.+?)\)\:/g, (match, p1, p2) => `${p1}.map(function(${p2}) {`);
-  code = code.replace(/(.+?)\.filter\((.+?)\)\:/g, (match, p1, p2) => `${p1}.filter(function(${p2}) {`);
-  code = code.replace(/(.+?)\.reduce\((.+?)\)\:/g, (match, p1, p2) => `${p1}.reduce(function(${p2}) {`);
-  code = code.replace(/isStr\((.+?)\)/g, (match, p1) => `typeof ${p1} === "string"`)
-  code = code.replace(/isNum\((.+?)\)/g, (match, p1) => `typeof ${p1} === "number"`)
-  code = code.replace(/constructor\((.+?)\)\:/g, (match, p1) => `constructor(${p1}) {`);
-  code = code.replace(/speak\(\)\:/g, "speak() {");
-  code = code.replace(/class\s(.+?)\:/g, (match, p1) => `class ${p1} {`);
-  code = code.replace(/class\s(.+?)\sextends\s(.+?)\:/g, (match, p1, p2) => `class ${p1} extends ${p2} {`);
-  code = code.replace(/static(.+?)\:/g, (match, p1) => `static${p1} {`);
   code = code.replace(/end\:\:/g, "});");
   code = code.replace(/end\:(?!\d)/g, "}");
   code = code.replace(/end\:(.+?)\:/g, (match, p1) => `}, ${p1});`);
   
-  console.log(code);
-  const script = document.createElement("script");
-  script.textContent = code;
-  document.body.appendChild(script);
-  }
-}
-
-function image(element, imageClass) {
-  if (!element) {
-    console.error(`Element tidak ditemukan.`);
-    return;
-  }
-
-  const icon = document.createElement("i");
-
-  // Pisahkan class yang diberikan berdasarkan spasi
-  const classes = imageClass.split(' ');
-  classes.forEach(cls => icon.classList.add(cls));
-
-  element.appendChild(icon);
-}
+  vm.runInNewContext(code, sandbox);

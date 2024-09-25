@@ -1,0 +1,13 @@
+class Animal:
+  constructor(name, type):
+    this.name = name
+    this.type = type
+  end:
+  
+  describe():
+    print(`My ${this.type}'s name is ${this.name}`)
+  end:
+end:
+
+const dog = new Animal("Buddy", "Dog")
+dog.describe()
