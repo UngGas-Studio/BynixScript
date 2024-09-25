@@ -6,7 +6,7 @@ BynixScript Non-Website refers to running and developing BynixScript application
 
 To install BynixScript globally using npm, run the following command:
 ```
-npm install -g BynixScript
+npm install -g bynixscript
 ```
 
 ## Cloning the Repository
