@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BynixScript - Installation</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">BynixScript</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Featured</a></li>
+                <li><a href="#example">Example</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Download BynixScript</h1>
+            <p>If you want to download BynixScript right now, you can do that using NPM or by cloning the BynixScript repository.</p>
+        </div>
+    </div>
+
+    <section id="using-npm" class="using-npm-section">
+        <div class="container">
+            <h2>Using NPM</h2>
+            <p>Make sure you have <a href="https://nodejs.org/">NodeJS</a> and NPM. Then run the following command:</p>
+            <div id="markdown-content">
+              ```
+              npm install -g bynixscript
+              ```
+            </div>
+            <div id="html-output"></div>
+        </div>
+    </section>
+
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>Feature One</h3>
+                    <p>Easy to understand syntax.</p>
+                </div>
+                <div class="feature">
+                    <h3>Feature Two</h3>
+                    <p>Can be run in both web and non-web environments.</p>
+                </div>
+                <div class="feature">
+                    <h3>Feature Three</h3>
+                    <p>Files can be run directly or compiled to JavaScript.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="example" class="example-section">
+      <div class="container">
+        <h2>Example</h2>
+        <p>This is a simple example of what can be done with BynixScript.</p>
+        <pre><code class="language-javascript">
+var myAge = contentAge(14)
+var myName = "Aliez"
+var yourAge = contentAge(14)
+var yourName = "Dave"
+var difference
+
+func contentAge(age):
+  if age == null || age == 0:
+    const random = rand(roundUp() * 10) * 5
+    const a = roundUp(random)
+    return a
+  else:
+    return age
+  end:
+end:
+
+func check(order, year):
+  if order === "age difference":
+    if myAge < 1 || yourAge < 1 || typeof myAge === "string" || typeof yourAge === "string":
+      print("Invalid age")
+    else:
+      if myAge < yourAge:
+        difference = yourAge - myAge
+        print(yourName + " is older than " + myName + ", they are " + difference + " years apart")
+      elif myAge === yourAge:
+        print(myName + " and " + yourName + " are the same age")
+      else:
+        difference = myAge - yourAge
+        print(myName + " is younger than " + yourName + ", they are " + difference + " years apart")
+      end:
+    end:
+  elif order === "year of birth":
+    var myBirthYear = year - myAge
+    var yourBirthYear = year - yourAge
+    print(myName + " was born in " + myBirthYear + " and " + yourName + " was born in " + yourBirthYear)
+  elif order === "stop":
+    print("Sorry, the process cannot be continued. Because the process has stopped")
+  else:
+    print("Sorry, something went wrong")
+  end:
+end:
+
+check("year of birth", 2024)
+        </code></pre>
+      </div>
+    </section>
+
+<section id="contact" class="contact-section">
+    <div class="container">
+        <h2>Contact Us</h2>
+        <p>Feel free to reach out to us by filling out the form below.</p>
+        <div class="contact-form">
+            <form action="#">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+    <!--<footer>
+        <p>&copy; 2024 BynixScript. All rights reserved.</p>
+    </footer>-->
+
+    <script src="script.js"></script>
+<script>
+  const markdownContent = document.getElementById('markdown-content').innerText;
+  const convertedHtml = marked(markdownContent);
+  document.getElementById('html-output').innerHTML = convertedHtml;
+</script>
+</body>
+</html>

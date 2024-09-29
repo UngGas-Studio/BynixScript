@@ -1,0 +1,15 @@
+.token.keyword {
+    color: #8e2aa2; /* Warna untuk kata kunci */
+}
+
+.token.keyword2 {
+  color: #fdf721;
+}
+
+.token.string {
+    color: #06ad26; /* Warna untuk string */
+}
+
+.token.operator {
+  background-color: #f5f2f0;
+}

@@ -1,0 +1,35 @@
+{
+    "name": "bynixscript",
+    "version": "0.1.0",
+    "description": "This is new Programming Language.",
+    "scripts": {
+        "test": "node bsr.js $1"
+    },
+    "alias": {
+        "test": "npm run test"
+    },
+    "bin": {
+        "b!help": "./help.js",
+        "bsr": "./bsr.js",
+        "bst": "./bst.js",
+        "bsp": "./bsp.js",
+        "bsd": "./bsd.js"
+    },
+    "author": "UngGasStudio",
+    "license": "MIT",
+    "dependencies": {
+        "fs": "^0.0.1-security",
+        "vm": "^0.1.0"
+    },
+    "Keywords": [
+      "Languages",
+      "JavaScript",
+      "BynixScript",
+      "Programming Languages"
+      ],
+    "devDependencies": {
+        "eslint": "^7.32.0",
+        "jest": "^27.5.1"
+    },
+    "repository": "https://github.com/UngGasStudio/BynixScript/"
+}
