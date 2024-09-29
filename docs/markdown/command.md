@@ -19,7 +19,7 @@ elif number < 10:
    print("Smaller than ten")
 else:
    print("Is ten")
-end:
+end
 
 // Translate to
 if (number > 10) {
@@ -97,7 +97,7 @@ myElement.design.color = "green"
 ```javascript
 if myText.is_value === "There!")
    print("myText value is 'There!'")
-end:
+end
 
 // Translate to
 if (myText.value === "There!") {
@@ -106,7 +106,7 @@ if (myText.value === "There!") {
 
 if myElement.is_design.color === "green"
    print("myElement color is 'green'")
-end:
+end
 
 // Translate to
 if (myElement.style.color === "green") {
@@ -115,7 +115,7 @@ if (myElement.style.color === "green") {
 
 if myName.is_start === "John":
   print("My name starts with 'John'")
-end:
+end
 
 // Translate to
 if (myName.startsWith("John")) {
@@ -124,7 +124,7 @@ if (myName.startsWith("John")) {
 
 if myName.is_end === "Stones":
   print("My name ends with 'Stones'")
-end:
+end
 
 // Translate to
 if (myName.endsWith("Stones")) {
@@ -133,7 +133,7 @@ if (myName.endsWith("Stones")) {
 
 if myElement.is_action === "checked":
    print("Checked!")
-end:
+end
 
 // Translate to
 if (myElement.checked) {
@@ -142,7 +142,7 @@ if (myElement.checked) {
 
 if myElement.is_have === "required":
    print("Have required!")
-end:
+end
 
 // Translate to
 if (myElement.required) {
@@ -170,7 +170,7 @@ match choice:
      break:
    default:
      print("No choice")
-end:
+end
 
 // Translate to
 switch (choice) {
@@ -188,7 +188,7 @@ switch (choice) {
 ```javascript
 delay:
   print("Delay in 5 seconds")
-end:5000:
+end:5000
 
 // Translate to
 setTimeout(function() {
@@ -197,7 +197,7 @@ setTimeout(function() {
 
 repeat:
   print("Repeating every 2 seconds")
-end:2000:
+end:2000
 
 // Translate to
 setInterval(function() {
@@ -275,7 +275,7 @@ const e = int(f)
 ```javascript
 class className:
   # your code here
-end:
+end
 
 // Translate to
 class className {
@@ -286,7 +286,7 @@ class className {
 ```javascript
 class car1 extends className:
   # your code here
-end:
+end
 
 // Translate to
 class car1 extends className {
@@ -297,7 +297,7 @@ class car1 extends className {
 ```javascript
 constructor(name):
   # your code here
-end:
+end
 
 // Translate to
 constructor(name) {
@@ -313,37 +313,86 @@ const Dog = new className("Buddy")
 ```javascript
 if isNum(variable):
   print("Type: number")
-end:
+end
 
 // Translate to
 if (typeof variable === "number") {
   console.log("Type: number");
 }
-
+```
+```javascript
 if isStr(variable):
   print("Type: string")
-end:
+end
 
 // Translate to
 if (typeof variable === "string") {
   console.log("Type: string");
 }
 
+if isBool(variable):
+  print("Type: Boolean")
+end
+
+// Translate to
+if (typeof variable === "boolean") {
+  console.log("Type: boolean");
+}
+
+if isUndef(variable):
+  print("Type: undefined")
+end
+
+// Translate to
+if (typeof variable === "undefined") {
+  console.log("Type: undefined");
+}
+
+if isObj(variable):
+  print("Type: object")
+end
+
+// Translate to
+if (typeof variable === "object") {
+  console.log("Type: object");
+}
+
+if isSym(variable):
+  print("Type: symbol")
+end
+
+// Translate to
+if (typeof variable === "symbol") {
+  console.log("Type: symbol");
+}
+
+if isBig(variable):
+  print("Type: bigint")
+end
+
+// Translate to
+if (typeof variable === "bigint") {
+  console.log("Type: bigint");
+}
+
 if isNull(variable):
   print("Value: null")
-end:
+end
 
 // Translate to
 if (variable === null) {
   console.log("Value: null");
 }
+
+print(isType(variable))
+// console.log(typeof variable);
 ```
 #### Functional Programming
 ```javascript
 const numbers = [1, 2, 3, 4, 5]
 const result = numbers.map(num):
   return num * 2
-end::
+end
 
 // Translate to
 const numbers = [1, 2, 3, 4, 5];
@@ -354,7 +403,7 @@ const result = numbers.map(function(num) {
 const ages = [12, 18, 20, 10, 25]
 const result = ages.filter(age):
   return age >= 18
-end::
+end
 
 // Translate to
 const ages = [12, 18, 20, 10, 25];
@@ -365,7 +414,7 @@ const result = ages.filter(function(age) {
 const numbers = [1, 2, 3, 4]
 const sum = numbers.reduce(total, num):
   return total + num
-end:0:
+end:0
 
 // Translate to
 const numbers = [1, 2, 3, 4, 5]

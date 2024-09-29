@@ -6,7 +6,9 @@ const defaultConfig = {
     secondary: '.bynixscript',
     module: '.mbs'
   },
+  readFolder: './',
   toFolder: './',
+  readAll: false,
   translate: 'javascript'
 };
 
@@ -25,7 +27,9 @@ const extensions = {
   module: config.extension?.module || defaultConfig.extension.module
 };
 
+const readFolder = config.readFolder || defaultConfig.readFolder;
 const toFolder = config.toFolder || defaultConfig.toFolder;
+const readAll = config.readAll || defaultConfig.readAll;
 const translate = config.translate || defaultConfig.translate;
 
-module.exports = { defaultConfig, config, extensions, toFolder, translate };
+module.exports = { defaultConfig, config, extensions, toFolder, readFolder, readAll, translate };

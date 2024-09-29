@@ -293,6 +293,10 @@ section {
     .hamburger {
         display: block;
     }
+    
+    .example-btn {
+      left: 12%;
+    }
 }
 
 .hamburger-menu .nav-links {
@@ -326,10 +330,13 @@ section {
         display: block;
         cursor: pointer;
     }
-<<<<<<< HEAD
     
     .editor {
       font-size: 1000%;
+    }
+    
+    .example-btn {
+      background-color: red;
     }
 }
 
@@ -337,7 +344,7 @@ section {
     display: flex;
     gap: 10px;
     margin-top: -25px;
-    margin-bottom: -30px;
+    margin-bottom: -20px;
 }
 
 .copy-btn, .example-btn {
@@ -349,26 +356,14 @@ section {
 }
 
 .copy-btn {
-=======
-
-    .example-btn {
-        left: 45%;
-    }
-}
-
-.copy-btn {
     position: absolute;
->>>>>>> 778ead8626aceb34e53f86d15d76f11e2b8c46b2
     background-color: #28ca04;
     color: white;
 }
 
 .example-btn {
-<<<<<<< HEAD
-=======
     position: absolute;
-    left: 25%;
->>>>>>> 778ead8626aceb34e53f86d15d76f11e2b8c46b2
+    left: 26.8%;
     background-color: #28ca04;
     color: white;
 }

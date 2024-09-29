@@ -8,15 +8,18 @@ hamburger.addEventListener('click', () => {
 document.querySelectorAll('.copy-btn').forEach(button => {
     button.addEventListener('click', function() {
       // Find the associated <code> element
-      const codeBlock = this.nextElementSibling;
+      const codeBlock = document.getElementById("code-block");
       const textToCopy = codeBlock.innerText;
+      const exampleBtn = document.querySelector(".example-btn");
 
       // Copy the code text to clipboard
       navigator.clipboard.writeText(textToCopy).then(() => {
         // Change button text after copying
         this.textContent = 'Copied!';
+        exampleBtn.style.left = "31%";
         setTimeout(() => {
           this.textContent = 'Copy';
+          exampleBtn.style.left = "26.8%";
         }, 2000); // Reset button text after 2 seconds
       }).catch(err => {
         console.error('Failed to copy: ', err);
