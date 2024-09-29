@@ -33,19 +33,19 @@ bsd path/to/script.bs
 ### Using clone repository
 Run a BynixScript file:
 ```
-node bin/bsr.js path/to/script.bs
+node src/triggerBsr.js path/to/script.bs
 ```
 Compile a BynixScript file:
 ```
-node bin/bst.js path/to/script.bs
+node src/triggerBst.js path/to/script.bs
 ```
 To print a BynixScript file to console:
 ```
-node bin/bsp.js path/to/script.bs
+node src/triggerBsp.js path/to/script.bs
 ```
 To delete a file
 ```
-node bin/bsd.js path/to/script.bs
+node src/triggerBsd.js path/to/script.bs
 ```
 ## Extension
 If you want a extension, you have two options :
