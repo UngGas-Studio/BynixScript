@@ -9,6 +9,7 @@ const defaultConfig = {
   readFolder: './',
   toFolder: './',
   readAll: false,
+  allowJs: false,
   translate: 'javascript'
 };
 
@@ -30,6 +31,7 @@ const extensions = {
 const readFolder = config.readFolder || defaultConfig.readFolder;
 const toFolder = config.toFolder || defaultConfig.toFolder;
 const readAll = config.readAll || defaultConfig.readAll;
+const allowJs = config.allowJs || defaultConfig.allowJs;
 const translate = config.translate || defaultConfig.translate;
 
-module.exports = { defaultConfig, config, extensions, toFolder, readFolder, readAll, translate };
+module.exports = { defaultConfig, config, extensions, toFolder, readFolder, readAll, allowJs, translate };

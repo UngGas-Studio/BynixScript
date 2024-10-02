@@ -1,3 +1,4 @@
+const { defaultConfig, config, extensions, toFolder, readFolder, readAll, allowJs, translate } = require('./bsconfig.js');
 let parsingMsg = "";
 
 function parsing(variable) {
@@ -67,19 +68,21 @@ function parsing(variable) {
     /\.filter\(function\((.+?)\)\s*\{/g,
     /\.reduce\(function\((.+?)\)\s*\{/g,
   ];
-
-  const matches = patterns.map(pattern => {
-    const match = variable.match(pattern);
-    return match ? match[0] : null;
-  }).filter(Boolean);
-
-  if (matches.length > 0) {
-    parsingMsg = "Invalid function '" + matches.join("', '") + "'";
-    console.log(parsingMsg);
-    return false;
-  } else {
-    parsingMsg = "";
-    return true;
+  
+  if (allowJs === false) {
+    const matches = patterns.map(pattern => {
+      const match = variable.match(pattern);
+      return match ? match[0] : null;
+    }).filter(Boolean);
+  
+    if (matches.length > 0) {
+      parsingMsg = "Invalid function '" + matches.join("', '") + "'";
+      console.log(parsingMsg);
+      return false;
+    } else {
+      parsingMsg = "";
+      return true;
+    }
   }
 }
 
