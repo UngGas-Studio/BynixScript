@@ -28,3 +28,7 @@ To use BynixScript in your browser or website, simply add one of the CDN below.
 ```html
 <script src="https://cdn.jsdelivr.net/gh/UngGasStudio/BynixScript@0.1.1/lib/index.js"></script>
 ```
+**Version**: `0.1.2-next`
+```html
+<script src="https://cdn.jsdelivr.net/gh/UngGasStudio/BynixScript@0.1.2/lib/index.js"></script>
+```
