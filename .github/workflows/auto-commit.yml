@@ -1,0 +1,29 @@
+name: Auto Commit and Push
+
+on:
+  push:
+    branches:
+      - main  # Ganti dengan branch yang Anda gunakan
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Git
+        run: |
+          git config --local user.name "Your Bot Name"  # Ganti dengan nama bot Anda
+          git config --local user.email "your-email@example.com"  # Ganti dengan email bot Anda
+
+      - name: Add changes
+        run: |
+          git add .
+          git commit -m "Automated commit" || echo "No changes to commit"
+
+      - name: Push changes
+        run: git push origin main  # Ganti dengan branch yang Anda gunakan
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token yang disediakan oleh GitHub untuk autentikasi
