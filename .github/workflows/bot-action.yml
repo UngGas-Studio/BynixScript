@@ -1,0 +1,17 @@
+name: PR Welcome Bot
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post Welcome Message
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Terima kasih telah membuat pull request! Kami akan segera meninjaunya.
