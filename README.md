@@ -1,4 +1,4 @@
-# What is BynixScript?
+## What is BynixScript?
 Simply put, BynixScript is a programming language created by UngGas Studio. For more details, you can see the documentation.
 
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
