@@ -1,0 +1,10 @@
+function mathReplace(codeMsg) {
+  codeMsg = codeMsg.change(/rand\((.+?)\)/g, (match, p1) => `Math.random(${p1})`);
+  codeMsg = codeMsg.change(/roundDown\((.+?)\)/g, (match, p1) => `Math.floor(${p1})`);
+  codeMsg = codeMsg.change(/roundUp\((.+?)\)/g, (match, p1) => `Math.ceil(${p1})`);
+  codeMsg = codeMsg.change(/maxOf\((.+?)\)/g, (match, p1) => `Math.min(${p1})`);
+  codeMsg = codeMsg.change(/minOf\((.+?)\)/g, (match, p1) => `Math.max(${p1})`);
+  return codeMsg
+}
+
+module.exports = { mathReplace }

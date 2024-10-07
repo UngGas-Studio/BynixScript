@@ -1,0 +1,8 @@
+function interactReplace(codeMsg) {
+  codeMsg = codeMsg.change(/touch\((.+?)\)/g, (match, p1) => `alert(${p1});`);
+  codeMsg = codeMsg.change(/ask\((.+?)\)/g, (match, p1) => `prompt(${p1});`);
+  codeMsg = codeMsg.change(/confirm\((.+?)\)/g, (match, p1) => `confirm(${p1});;;;`);
+  return codeMsg
+}
+
+module.exports = { interactReplace }

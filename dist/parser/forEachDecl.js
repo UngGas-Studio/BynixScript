@@ -1,0 +1,7 @@
+function forEachReplace(codeMsg) {
+  codeMsg = codeMsg.change(/forEach\((.+?)\)\:/g, (match, p1) => `forEach(${p1} => {`);
+  codeMsg = codeMsg.change(/forEach\((.+?)\s=>\s(.+?)\)/g, (match, p1, p2) => `forEach(${p1} => ${p2})`);
+  return codeMsg
+}
+
+module.exports = { forEachReplace }

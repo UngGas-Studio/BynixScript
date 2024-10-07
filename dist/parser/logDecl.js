@@ -1,0 +1,12 @@
+function logReplace(codeMsg) {
+  codeMsg = codeMsg.change(/print\((.+?)\)/g, (match, p1) => `console.log(${p1})`)
+  codeMsg = codeMsg.change(/print\.err\((.+?)\)/g, (match, p1) => `console.error(${p1})`)
+  codeMsg = codeMsg.change(/print\.info\((.+?)\)/g, (match, p1) => `console.info(${p1})`)
+  codeMsg = codeMsg.change(/print\.warn\((.+?)\)/g, (match, p1) => `console.warn(${p1})`)
+  codeMsg = codeMsg.change(/print\.debug\((.+?)\)/g, (match, p1) => `console.debug(${p1})`)
+  codeMsg = codeMsg.change(/print\.trace\((.+?)\)/g, (match, p1) => `console.trace(${p1})`)
+  codeMsg = codeMsg.change(/print\.assert\((.+?)\)/g, (match, p1) => `console.assert(${p1})`)
+  return codeMsg
+}
+
+module.exports = { logReplace }
