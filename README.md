@@ -53,7 +53,8 @@ If you want a extension, you have two options :
 - [BynixScript Plugin](docs/markdown/acode-plugin.md): **To improve the experience of using BynixScript in Acode**
 - [Changelog](https://github.com/UngGasStudio/BynixScript/releases): **Changelog of plugin/extension updates**
 ## Example and Command
-You can see examples at [example](docs/markdown/example.md) and commands at [command](docs/markdown/command.md)
+- If you want to see examples for learning BynixScript, you can see at [example](docs/markdown/example.md)
+- If you want to see all BynixScript function list, you can see at [function](docs/markdown/function.md)
 ## Table of content
 - [What Is BynixScript](#What-Is-BynixScript)
   - [Installation](#Installation)
