@@ -416,3 +416,40 @@ const sum = numbers.reduce(function(total, num) {
   return total + num;
 }, 0);
 ```
+#### Error Handling
+```javascript
+handle:
+   null.f
+recovery (err):
+   print(err.message)
+final:
+   print("Final block executed")
+end
+```
+```javascript
+if err.is_error === "type":
+   print("TypeError:", err.message)
+end
+
+// Translate to
+if (err instanceof TypeError) {
+   console.log("TypeError:", err.message)
+}
+```
+- is_error value
+  - type
+  - reference
+  - syntax
+  - range
+```javascript
+throw new Err("Error message")
+// throw new Error("Error Message");
+```
+```javascript
+throw new URIErr("URIError message")
+// throw new URIError("URIError message
+```
+```javascript
+throw new TypeErr("TypeError message")
+// throw new TypeError("TypeError message")
+```
