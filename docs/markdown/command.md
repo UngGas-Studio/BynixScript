@@ -322,47 +322,30 @@ const g = float(h)
 // const g = parseFloat(h);
 ```
 #### Object-Oriented Programming
-```javascript
-super(name)
-// super(name)
-```
-```javascript
-class className:
-  # your code here
+class Person:
+  constructor(name, age):
+    this.name = name
+    this.age = age
+  end
+  
+  speak():
+    print(`My name is ${this.name} and I'm still ${this.age} years ago`)
+  end
 end
 
-// Translate to
-class className {
-  // your code here
-}
-```
-##### Inheritance
-```javascript
-class car1 extends className:
-  # your code here
+class Introduction extends Person:
+  constructor(name, age, hobby):
+    super(name, age)
+    this.hobby = hobby
+  end
+  
+  speak():
+    print(`My name is ${this.name}, I'm still ${this.age} and I like ${this.hobby}`)
+  end
 end
 
-// Translate to
-class car1 extends className {
-  // your code here
-}
-```
-##### Object Initialization
-```javascript
-constructor(name):
-  # code here
-end
-
-// Translate to
-constructor(name) {
-  // code here
-}
-```
-##### Object Creation
-```javascript
-const Dog = new className("Buddy")
-// class dog = new className("Buddy");
-```
+const person = new Introduction("Clay", 14, "Coding")
+person.speak()
 #### Type Checking
 ```javascript
 if variable.is_type === "number":
