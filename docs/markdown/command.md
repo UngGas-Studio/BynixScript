@@ -6,6 +6,10 @@ BynixScript functions are similar to JavaScript, only simplified and there are s
 var name = "myName"
 // var name = "myName";
 ```
+```javascript
+name = "yourName"
+// name = "yourName";
+```
 ###### Assign variable:
 ```javascript
 const name = "yourName"
