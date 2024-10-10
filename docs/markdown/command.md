@@ -1,5 +1,5 @@
 # List of functions
-BynixScript commands are similar to JavaScript, only simplified and there are some commands that are different from JavaScript.
+BynixScript functions are similar to JavaScript, only simplified and there are some commands that are different from JavaScript.
 #### Variable
 ###### Reassign variable:
 ```javascript
@@ -35,10 +35,12 @@ if (number > 10) {
 ```javascript
 touch("Hello World!")
 // alert("Hello World")
-
+```
+```javascript
 ask("What's your name?")
 // prompt("What's your name?");
-
+```
+```javascript
 confirm("Are you sure you want to exit?")
 // confirm("Are you sure you want to exit?");
 ```
@@ -46,22 +48,28 @@ confirm("Are you sure you want to exit?")
 ```javascript
 print("Hello World!")
 // console.log("Hello World!");
-
+```
+```javascript
 print.err("Validation error")
 // console.error("Validation error")
-
+```
+```javascript
 print.warn("Warning alert")
 // console.warn("Warning alert")
-
+```
+```javascript
 print.info("Information")
 // console.info("Information")
-
+```
+```javascript
 print.debug("Debugging")
 // console.debug("Debugging")
-
+```
+```javascript
 print.trace("Trace print")
 // console.trace("Trace print")
-
+```
+```javascript
 print.assert("Assert print")
 // console.assert("Assert print")
 ```
@@ -69,28 +77,36 @@ print.assert("Assert print")
 ```javascript
 const myElement = getElement("#myElement")
 // const myElement = document.querySelector("#myElement");
-
+```
+```javascript
 const myElement = getAllElement(".myElement")
 // const myElement = document.querySelectorAll(".myElement");
-
+```
+```javascript
 const myDiv = createElement("div")
 // const myDiv = createElement("div");
-
+```
+```javascript
 body.addElement(myDiv)
 // document.body.appendChild(myDiv);
-
+```
+```javascript
 myElement.text = "Hello World!"
 // myElement.textContent = "Hello World!";
-
+```
+```javascript
 const text = myElement.text
 // const text = myElement.textContent;
-
+```
+```javascript
 myElement.image = "fas fa-camera"
 // image(myElement, "fas fa-camera");
-
+```
+```javascript
 myElement.design = "color: green;"
 // myElement.style = "color: green;";
-
+```
+```javascript
 myElement.design.color = "green"
 // myElement.design.color = "green";
 ```
@@ -103,7 +119,28 @@ end
 if (myText.value === "There!") {
    console.log("myText value is 'There!'");
 }
+```
+```javascript
+if myText.is_includes("World!"):
+   print("Included: 'World!'")
+end
 
+// Translate to
+if (myText.includes("World!") {
+   console.log("Included: 'World!'");
+}
+```
+```javascript
+if pattern.is_matched(/clady/g):
+   print("Matched: 'clady'")
+end
+
+// Translate to
+if (pattern.match(/clady/g)) {
+   console.log("Matched: 'clady'")
+}
+```
+```javascript
 if myElement.is_design.color === "green"
    print("myElement color is 'green'")
 end
@@ -112,8 +149,9 @@ end
 if (myElement.style.color === "green") {
    console.log("myElement color is 'green'");
 }
-
-if myName.is_start === "John":
+```
+```javascript
+if myName.is_start("John"):
   print("My name starts with 'John'")
 end
 
@@ -121,8 +159,9 @@ end
 if (myName.startsWith("John")) {
   console.log("My name starts with 'John'");
 }
-
-if myName.is_end === "Stones":
+```
+```javascript
+if myName.is_end("Stones"):
   print("My name ends with 'Stones'")
 end
 
@@ -130,7 +169,8 @@ end
 if (myName.endsWith("Stones")) {
   console.log("My name ends with 'Stones'");
 }
-
+```
+```javascript
 if myElement.is_action === "checked":
    print("Checked!")
 end
@@ -139,7 +179,8 @@ end
 if (myElement.checked) {
    console.log("Checked");
 }
-
+```
+```javascript
 if myElement.is_have === "required":
    print("Have required!")
 end
