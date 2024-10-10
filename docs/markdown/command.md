@@ -235,7 +235,8 @@ end:5000
 setTimeout(function() {
   console.log("Delay in 5 seconds");
 }, 5000);
-
+```
+```javascript
 repeat:
   print("Repeating every 2 seconds")
 end:2000
@@ -249,16 +250,20 @@ setInterval(function() {
 ```javascript
 print(rand())
 // console.log(Math.random());
-
+```
+```javascript
 print(roundUp(4.2))
 // console.log(Math.ceil(4.2));
-
+```
+```javascript
 print(roundDown(4, 7))
 // console.log(Math.floor(4, 7));
-
+```
+```javascript
 print(maxOf(10, 20, 30))
 // console.log(Math.max(10, 20, 30));
-
+```
+```javascript
 print(minOf(10, 20, 30))
 // console.log(Math.min(10, 20, 30));
 ```
@@ -393,7 +398,8 @@ const numbers = [1, 2, 3, 4, 5];
 const result = numbers.map(function(num) {
   return num * 2;
 });
-
+```
+```javascript
 const ages = [12, 18, 20, 10, 25]
 const result = ages.filter(age):
   return age >= 18
@@ -404,7 +410,8 @@ const ages = [12, 18, 20, 10, 25];
 const result = ages.filter(function(age) {
   return age >= 18;
 });
-
+```
+```javascript
 const numbers = [1, 2, 3, 4]
 const sum = numbers.reduce(total, num):
   return total + num
@@ -447,9 +454,29 @@ throw new Err("Error message")
 ```
 ```javascript
 throw new URIErr("URIError message")
-// throw new URIError("URIError message
+// throw new URIError("URIError message");
 ```
 ```javascript
 throw new TypeErr("TypeError message")
-// throw new TypeError("TypeError message")
+// throw new TypeError("TypeError message");
+```
+```javascript
+throw new EvalErr("EvalError message")
+// throw new EvalError("EvalError message")
+```
+```javascript
+throw new RangeErr("RangeError message")
+// throw new RangeError("RangeError message")
+```
+```javascript
+throw new SyntaxErr("SyntaxError message")
+// throw new SyntaxError("SyntaxError message")
+```
+```javascript
+throw new InternalErr("InternalError message")
+// throw new InternalError("InternalError message")
+```
+```javascript
+throw new ReferenceErr("ReferenceError message")
+// throw new ReferenceError("RefenceError message")
 ```
