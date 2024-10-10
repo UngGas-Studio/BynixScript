@@ -1,4 +1,4 @@
-# Command
+# List of functions
 BynixScript commands are similar to JavaScript, only simplified and there are some commands that are different from JavaScript.
 #### Variable
 ###### Reassign variable:
@@ -271,7 +271,15 @@ const c = str(d)
 const e = int(f)
 // const e = parseInt(f);
 ```
+```javascript
+const g = float(h)
+// const g = parseFloat(h);
+```
 #### Object-Oriented Programming
+```javascript
+super(name)
+// super(name)
+```
 ```javascript
 class className:
   # your code here
@@ -296,12 +304,12 @@ class car1 extends className {
 ##### Object Initialization
 ```javascript
 constructor(name):
-  # your code here
+  # code here
 end
 
 // Translate to
 constructor(name) {
-  // your code here
+  // code here
 }
 ```
 ##### Object Creation
@@ -311,7 +319,7 @@ const Dog = new className("Buddy")
 ```
 #### Type Checking
 ```javascript
-if isNum(variable):
+if variable.is_type === "number":
   print("Type: number")
 end
 
@@ -319,74 +327,19 @@ end
 if (typeof variable === "number") {
   console.log("Type: number");
 }
+
+print(variable.type)
+// console.log(typeof variable)
 ```
-```javascript
-if isStr(variable):
-  print("Type: string")
-end
-
-// Translate to
-if (typeof variable === "string") {
-  console.log("Type: string");
-}
-
-if isBool(variable):
-  print("Type: Boolean")
-end
-
-// Translate to
-if (typeof variable === "boolean") {
-  console.log("Type: boolean");
-}
-
-if isUndef(variable):
-  print("Type: undefined")
-end
-
-// Translate to
-if (typeof variable === "undefined") {
-  console.log("Type: undefined");
-}
-
-if isObj(variable):
-  print("Type: object")
-end
-
-// Translate to
-if (typeof variable === "object") {
-  console.log("Type: object");
-}
-
-if isSym(variable):
-  print("Type: symbol")
-end
-
-// Translate to
-if (typeof variable === "symbol") {
-  console.log("Type: symbol");
-}
-
-if isBig(variable):
-  print("Type: bigint")
-end
-
-// Translate to
-if (typeof variable === "bigint") {
-  console.log("Type: bigint");
-}
-
-if isNull(variable):
-  print("Value: null")
-end
-
-// Translate to
-if (variable === null) {
-  console.log("Value: null");
-}
-
-print(isType(variable))
-// console.log(typeof variable);
-```
+- is_type value
+  - number
+  - string
+  - boolean
+  - function
+  - symbol
+  - bigint
+  - undefined
+  - object
 #### Functional Programming
 ```javascript
 const numbers = [1, 2, 3, 4, 5]
