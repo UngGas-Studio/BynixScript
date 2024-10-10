@@ -225,6 +225,13 @@ switch (choice) {
      console.log("No choice")
 }
 ```
+```javascript
+break
+// break;
+
+continue
+// continue;
+```
 #### Asynchronous Programming
 ```javascript
 delay:
