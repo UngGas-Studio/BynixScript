@@ -190,11 +190,11 @@ if (myElement.required) {
    console.log("Have required")
 }
 ```
-- is_action
+- is_action value
    - checked
    - selected
    - open
-- is_have
+- is_have value
    - required
    - readonly
    - autofocus
@@ -205,10 +205,10 @@ if (myElement.required) {
 match choice:
    case choice1:
      print("Choice 1")
-     break:
+     break
    case choice2:
      print("Choice 2")
-     break:
+     break
    default:
      print("No choice")
 end
