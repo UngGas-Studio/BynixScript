@@ -322,6 +322,7 @@ const g = float(h)
 // const g = parseFloat(h);
 ```
 #### Object-Oriented Programming
+```javascript
 class Person:
   constructor(name, age):
     this.name = name
@@ -346,6 +347,7 @@ end
 
 const person = new Introduction("Clay", 14, "Coding")
 person.speak()
+```
 #### Type Checking
 ```javascript
 if variable.is_type === "number":
