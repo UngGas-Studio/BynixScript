@@ -10,6 +10,7 @@ const defaultConfig = {
   toFolder: './',
   watch: false,
   allowJs: false,
+  strict: false,
   translate: 'javascript'
 };
 
@@ -32,6 +33,7 @@ const readFolder = config.readFolder || defaultConfig.readFolder;
 const toFolder = config.toFolder || defaultConfig.toFolder;
 const watch = config.watch || defaultConfig.watch;
 const allowJs = config.allowJs || defaultConfig.allowJs;
+const strict = config.strict || defaultConfig.strict;
 const translate = config.translate || defaultConfig.translate;
 
-module.exports = { defaultConfig, config, extensions, toFolder, readFolder, watch, allowJs, translate };
+module.exports = { defaultConfig, config, extensions, toFolder, readFolder, watch, allowJs, strict, translate };

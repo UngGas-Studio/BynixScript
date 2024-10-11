@@ -3,8 +3,8 @@ const fs = require('fs')
 const vm = require('vm')
 const path = require('path')
 const { defaultConfig, config, readFolder, extensions } = require('../js/bsconfig.js')
-const { parsing, parsingMsg, parseCode } = require('../js/parser.js')
-const { funcReplace, condReplace, forEachReplace, reassignReplace, assignReplace, logReplace, interactReplace, mathReplace, domReplace, commentReplace, utilityReplace, asyncReplace, flowReplace, forReplace, convReplace, checkReplace, oopReplace, excepReplace, otherReplace } = require('./parser/parsingDecl.js')
+const { parsing, parsingMsg, parseCode, addSemicolons } = require('../js/parser.js')
+const { funcReplace, condReplace, forEachReplace, reassignReplace, assignReplace, logReplace, interactReplace, mathReplace, domReplace, commentReplace, utilityReplace, asyncReplace, flowReplace, forReplace, convReplace, checkReplace, oopReplace, excepReplace, expReplace, otherReplace } = require('./parser/parsingDecl.js')
 
 const sandbox = {
   require: require,
@@ -12,13 +12,14 @@ const sandbox = {
   process: process,
 }
 
-const locate = String(process.argv[2])
+var locate = String(process.argv[2])
 const directory = String(readFolder)
 var fileFrom = path.join(directory, locate)
 
 if (locate.endsWith(extensions.primary) || locate.endsWith(extensions.secondary) || locate.endsWith(extensions.module)) {
   var box = fs.readFileSync(fileFrom, 'utf-8')
   var code = parseCode(box)
+  code = addSemicolons(code)
   var parsingResults = parsing(code)
   
   if (parsingResults === false) {
@@ -41,10 +42,12 @@ if (locate.endsWith(extensions.primary) || locate.endsWith(extensions.secondary)
     code = checkReplace(code)
     code = oopReplace(code)
     code = excepReplace(code)
+    code = domReplace(code)
   
     vm.runInNewContext(code, sandbox);
   }
 } else {
+  locate = locate.replace("undefined", "")
   console.log("Invalid file name '" + locate + "'")
   console.log("Use the " + extensions.primary + ", " + extensions.secondary + ", or " + extensions.module + " extension")
 }

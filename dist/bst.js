@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 const fs = require('fs')
 const path = require('path')
-const { extensions, toFolder, readFolder, watch, translate } = require('../js/bsconfig.js')
-const { parsing, parsingMsg, parseCode } = require('../js/parser.js')
-const { funcReplace, condReplace, forEachReplace, reassignReplace, assignReplace, logReplace, interactReplace, mathReplace, domReplace, commentReplace, utilityReplace, asyncReplace, flowReplace, forReplace, convReplace, checkReplace, oopReplace, excepReplace, otherReplace } = require('./parser/parsingDecl.js')
+const { extensions, toFolder, readFolder, watch, strict, translate } = require('../js/bsconfig.js')
+const { parsing, parsingMsg, parseCode, addSemicolons } = require('../js/parser.js')
+const { funcReplace, condReplace, forEachReplace, reassignReplace, assignReplace, logReplace, interactReplace, mathReplace, domReplace, commentReplace, utilityReplace, asyncReplace, flowReplace, forReplace, convReplace, checkReplace, oopReplace, excepReplace, expReplace, otherReplace } = require('./parser/parsingDecl.js')
 const { watching } = require('../js/watcher.js')
 
 var locate = String(process.argv[2])
@@ -18,6 +18,7 @@ if (watch === true) {
   if (locate.endsWith(extensions.primary) || locate.endsWith(extensions.secondary) || locate.endsWith(extensions.module)) {
     var box = fs.readFileSync(fileFrom, 'utf-8')
     var code = parseCode(box)
+    code = addSemicolons(code)
     const parsingResults = parsing(code)
     
     if (parsingResults === false) {
@@ -40,6 +41,7 @@ if (watch === true) {
       code = checkReplace(code)
       code = oopReplace(code)
       code = excepReplace(code)
+      code = domReplace(code)
       
       filePath = filePath.replace(extensions.primary, ".js")
       filePath = filePath.replace(extensions.secondary, ".js")

@@ -16,6 +16,7 @@ const { convReplace } = require('./convDecl.js')
 const { checkReplace } = require('./checkDecl.js')
 const { oopReplace } = require('./oopDecl.js')
 const { excepReplace } = require('./excepDecl.js')
+const { expReplace } = require('./expDecl.js')
 const { otherReplace } = require('./otherDecl.js')
 
-module.exports = { funcReplace, condReplace, forEachReplace, reassignReplace, assignReplace, logReplace, interactReplace, mathReplace, domReplace, commentReplace, utilityReplace, asyncReplace, flowReplace, forReplace, convReplace, checkReplace, oopReplace, excepReplace, otherReplace }
+module.exports = { funcReplace, condReplace, forEachReplace, reassignReplace, assignReplace, logReplace, interactReplace, mathReplace, domReplace, commentReplace, utilityReplace, asyncReplace, flowReplace, forReplace, convReplace, checkReplace, oopReplace, excepReplace, expReplace, otherReplace }

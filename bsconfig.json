@@ -1,6 +1,5 @@
 {
-  "readFolder": "./src/parser",
-  "toFolder": "./dist/parser",
-  "allowJs": true,
-  "watch": true
+  "readFolder": "./src/",
+  "toFolder": "./dist/",
+  "allowJs": true
 }

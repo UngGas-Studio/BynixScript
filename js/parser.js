@@ -55,8 +55,6 @@ function parsing(variable) {
     /for \((.+?)\) \{/g,
     /classList\.add\((.+?)\)/g,
     /switch\s*\((.+?)\)/g,
-    /break\;/g,
-    /default\;/g,
     /image\((.+?), (.+?)\)/g,
     /class\s*(.+?)\s*\{/g,
     /class\s*(.+?)\s*extends\s*(.+?)\s*\{/g,
@@ -67,6 +65,9 @@ function parsing(variable) {
     /\.map\(function\((.+?)\)\s*\{/g,
     /\.filter\(function\((.+?)\)\s*\{/g,
     /\.reduce\(function\((.+?)\)\s*\{/g,
+    /try\s*{/g,
+    /}\s*catch\s*(.+?)\s*{/g,
+    /}\s*finally\s*{/g,
   ];
   
   if (allowJs === false) {
@@ -89,38 +90,36 @@ function parsing(variable) {
 function parseCode(code) {
     const lines = code.split('\n');
     const output = [];
-    let ifStack = 0;
-    let inListener = false;
-    let listenerRegex = /(.+?)\.listener/;
-    let classRegex = /(.+?)\(\)\:/;
-    let changeRegex = /(.+?)\.change\((.+?), \((.+?)\)\)\:/;
-    let mapRegex = /(.+?)\.map\((.+?)\)\:/;
-    let filterRegex = /(.+?)\.filter\((.+?)\)\:/;
-    let forEachRegex = /forEach\((.+?)\)\:/;
-    let classFuncRegex = /(.+?)\(\)\:/;
-    let recoveryRegex = /recovery\s*(.+?)/g;
+    const stack = [];
+    
+    const regex = {
+        listener: /(.+?)\.listener/,
+        classFunc: /(.+?)\(\)\:/,
+        change: /(.+?)\.change\((.+?), \((.+?)\)\)\:/,
+        map: /(.+?)\.map\((.+?)\)\:/,
+        filter: /(.+?)\.filter\((.+?)\)\:/,
+        forEach: /forEach\((.+?)\)\:/,
+        func: /func\s*(.+?)\((.+?)\)/,
+        blockStart: /^(if|elif|else|class|constructor|static|final|recovery|func)/,
+    };
 
-    for (let i = 0; i < lines.length; i++) {
-        const line = lines[i];
+    for (let line of lines) {
         const trimmedLine = line.trim();
 
-        if (trimmedLine.startsWith('if') || trimmedLine.startsWith('elif') || trimmedLine.startsWith('else') || trimmedLine.startsWith('func') || trimmedLine.startsWith('class') || trimmedLine.startsWith('constructor') || trimmedLine.startsWith('static') || classRegex.test(trimmedLine) || trimmedLine.startsWith('match') || classFuncRegex.test(trimmedLine) || trimmedLine.startsWith('handle') || recoveryRegex.test(trimmedLine)) {
-            ifStack++;
+        if (regex.blockStart.test(trimmedLine)) {
+            stack.push('block');
             output.push(line);
-        } else if (trimmedLine.startsWith('listener') || listenerRegex.test(trimmedLine) || changeRegex.test(trimmedLine) || mapRegex.test(trimmedLine) || filterRegex.test(trimmedLine) || forEachRegex.test(trimmedLine)) {
-            inListener = true;
+        } else if (regex.listener.test(trimmedLine) || regex.change.test(trimmedLine) || 
+                   regex.map.test(trimmedLine) || regex.filter.test(trimmedLine) || regex.forEach.test(trimmedLine)) {
+            stack.push('listener');
+            output.push(line);
+        } else if (regex.func.test(trimmedLine)) {
+            stack.push('func');
             output.push(line);
         } else if (trimmedLine === 'end') {
             const indent = line.match(/^\s*/)[0];
-            if (inListener) {
-                output.push(`${indent}});`);
-                inListener = false;
-            } else if (ifStack > 0) {
-                output.push(`${indent}` + '}');
-                ifStack--;
-            } else {
-                output.push(line);
-            }
+            const lastBlock = stack.pop();
+            output.push(lastBlock === 'listener' ? `${indent}});` : `${indent}}`);
         } else {
             output.push(line);
         }
@@ -129,4 +128,26 @@ function parseCode(code) {
     return output.join('\n');
 }
 
-module.exports = { parsing, parseCode };
+function addSemicolons(code) {
+    const lines = code.split('\n');
+    const output = [];
+    
+    const regex = {
+        needsSemicolon: /^(var|const|return|throw|break|continue|.*\=.*|[^;{}]+\))$/,
+        alreadyTerminated: /[:;{}]\s*$/
+    };
+
+    for (let line of lines) {
+        const trimmedLine = line.trim();
+        
+        if (regex.needsSemicolon.test(trimmedLine) && !regex.alreadyTerminated.test(trimmedLine)) {
+            output.push(line + ';');
+        } else {
+            output.push(line);
+        }
+    }
+
+    return output.join('\n');
+}
+
+module.exports = { parsing, parseCode, addSemicolons };

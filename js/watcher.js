@@ -37,6 +37,7 @@ function watching(directory, directory2) {
         code = checkReplace(code)
         code = oopReplace(code)
         code = excepReplace(code)
+        code = domReplace(code)
         var newFilePath = path.join(directory2, path.basename(filePath));
         newFilePath = newFilePath.replace(".bs", ".js");
         fs.writeFileSync(newFilePath, code);
@@ -68,6 +69,7 @@ function watching(directory, directory2) {
         code = checkReplace(code)
         code = oopReplace(code)
         code = excepReplace(code)
+        code = domReplace(code)
         var newFilePath = path.join(directory2, path.basename(filePath));
         newFilePath = newFilePath.replace(".bs", ".js");
         fs.writeFileSync(newFilePath, code);
