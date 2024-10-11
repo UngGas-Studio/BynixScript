@@ -1,0 +1,11 @@
+const choice = 0
+match choice:
+  case 1:
+    print("Just one!")
+    break
+  case 2:
+    print("Just two!")
+    break
+  default:
+    print("No choice.")
+end

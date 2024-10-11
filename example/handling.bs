@@ -1,0 +1,9 @@
+handle:
+  print("My name is " + name)
+recovery (err):
+  if err.is_error === "type":
+    print("TypeError: " + err.message)
+  elif err.is_error === "reference":
+    print("ReferenceError: " + err.message)
+  end
+end

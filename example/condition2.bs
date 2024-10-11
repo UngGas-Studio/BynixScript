@@ -1,5 +1,0 @@
-const text = "Hello World!"
-
-if is_matched === "/World!/g" || is_matched === "/There!/g" || is_matched === "/You!/g":
-    print("matched 'World1!'")
-end:

@@ -1,6 +1,4 @@
-func myFunction(param1, param2):
-    const result = param1 + param2
-    print("result: " + result)
-end:
-
-myFunction(2, 4)
+func greeting(message):
+  print(message)
+end
+greeting("Hey, There!")

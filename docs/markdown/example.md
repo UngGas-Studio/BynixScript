@@ -1,6 +1,6 @@
 # Example BynixScript
 BynixScript provides examples for those of you who want to learn BynixScript.
-**1. Condition**:
+**1. Condition statements**:
 ```javascript
 var myAge = 12
 if myAge.is_type === "number":
@@ -20,7 +20,7 @@ func greeting(message):
 end
 greeting("Hey, There!")
 ```
-**3. Loop**:
+**3. Loop statements**:
 ```javascript
 for i=0 to 10:
   print("Loop to " + i)
@@ -40,5 +40,19 @@ recovery (err):
   elif err.is_error === "reference":
     print("ReferenceError: " + err.message)
   end
+end
+```
+**5. Flow control**:
+```javascript
+const choice = 0
+match choice:
+  case 1:
+    print("Just one!")
+    break
+  case 2:
+    print("Just two!")
+    break
+  default:
+    print("No choice.")
 end
 ```
