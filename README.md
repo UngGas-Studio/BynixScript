@@ -8,12 +8,16 @@ Simply put, BynixScript is a programming language created by UngGas Studio. For 
 [![Package](https://img.shields.io/npm/dw/bynixscript)](https://www.npmjs.com/package/bynixscript?activeTab=readme)
 
 ## Installation
-To run BynixScript, you have two options:
-- [Non-Website](docs/markdown/non-website.md): **To run BynixScript on npm or clone repository**
-- [Website](docs/markdown/website.md): **To run BynixScript on your website**
-- [Changelog](https://github.com/UngGasStudio/BynixScript/releases): **Changelog of the BynixScript update**
+### Using NPM
+```
+npm install -g bynixscript
+```
+### Using CDN
+```
+<script src="https://cdn.jsdelivr.net/npm/bynixscript"></script>
+```
 ## Get Started
-### Using npm
+### Using NPM
 Run a BynixScript file:
 ```
 bsr path/to/script.bs
@@ -30,38 +34,52 @@ To delete a file
 ```
 bsd path/to/script.bs
 ```
-### Using clone repository
-Run a BynixScript file:
-```
-node src/triggerBsr.js path/to/script.bs
-```
-Compile a BynixScript file:
-```
-node src/triggerBst.js path/to/script.bs
-```
-To print a BynixScript file to console:
-```
-node src/triggerBsp.js path/to/script.bs
-```
-To delete a file
-```
-node src/triggerBsd.js path/to/script.bs
+### Using CDN
+```html
+<bynix>
+  const message = "Hello from BynixScript!"
+  print(message)
+</bynix>
 ```
 ## Extension
-If you want a extension, you have two options :
-- [BynixScript Extension](https://github.com/UngGasStudio/BynixScript-Extension): **To improve the experience of using BynixScript in VSCode**
-- [BynixScript Plugin](docs/markdown/acode-plugin.md): **To improve the experience of using BynixScript in Acode**
-- [Changelog](https://github.com/UngGasStudio/BynixScript/releases): **Changelog of plugin/extension updates**
-## Example and Command
-- If you want to see examples for learning BynixScript, you can see at [example](docs/markdown/example.md)
-- If you want to see all BynixScript function list, you can see at [function](docs/markdown/function.md)
+If you want to change your experience use BynixScript to good experience. You can use the below extensions for VSCode:
+- [Download](https://github.com/UngGasStudio/BynixScript-Extension)
+## Example
+```javascript
+class Person:
+  constructor(name, age):
+    this.name = name
+    this.age = age
+  end
+  
+  speak():
+    print(`My name is ${this.name} and I'm still ${this.age} years ago`)
+  end
+end
+
+class Introduction extends Person:
+  constructor(name, age, hobby):
+    super(name, age)
+    this.hobby = hobby
+  end
+  
+  speak():
+    print(`My name is ${this.name}, I'm still ${this.age} years ago and I like ${this.hobby}`)
+  end
+end
+
+const person = new Introduction("Clay", 14, "Coding")
+person.speak()
+```
 ## Table of content
 - [What Is BynixScript](#What-Is-BynixScript)
   - [Installation](#Installation)
+      - [Using NPM](#Using-npm)
+      - [Using CDN](#Using-cdn)
   - [Get Started](#Get-Started)
-      - [Using npm](#Using-npm)
-      - [Using clone repository](#Using-clone-repository)
+      - [Using NPM](#Using-npm)
+      - [Using CDN](#Using-cdn)
   - [Extension](#Extension)
-  - [Example and Command](#Example-and-Command)
+  - [Example](#Example)
   - [Table of content](#Table-of-content)
   
