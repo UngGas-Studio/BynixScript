@@ -358,6 +358,32 @@ end
 
 const person = new Introduction("Clay", 14, "Coding")
 person.speak()
+
+// Translate to
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  
+  speak() {
+    console.log(`My name is ${this.name} and I'm still ${this.age} years ago`)
+  }
+}
+
+class Introduction extends Person {
+  constructor(name, age, hobby) {
+    super(name, age);
+    this.hobby = hobby;
+  }
+  
+  speak() {
+    console.log(`My name is ${this.name}, I'm still ${this.age} years ago and I like ${this.hobby}`)
+  }
+}
+
+const person = new Introduction("Clay", 14, "Coding");
+person.speak();
 ```
 #### Type Checking
 ```javascript
@@ -428,6 +454,15 @@ recovery (err):
 final:
    print("Final block executed")
 end
+
+// Translate to
+try {
+  null.f
+} catch (err) {
+  console.log(err.message);
+} finally {
+  console.log("Final block executed");
+}
 ```
 ```javascript
 if err.is_error === "type":

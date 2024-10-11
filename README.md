@@ -71,6 +71,7 @@ end
 const person = new Introduction("Clay", 14, "Coding")
 person.speak()
 ```
+BynixScript code examples are not limited to that, BynixScript still has other examples that you can see on the [example](docs/markdown/example.md) page
 ## Table of content
 - [What Is BynixScript](#What-Is-BynixScript)
   - [Installation](#Installation)
