@@ -12,7 +12,7 @@ Simply put, BynixScript is a programming language created by UngGas Studio. For 
 ```
 npm install -g bynixscript
 ```
-### Using CDN
+### Using CDN <a name="using-cdn-installation"></a>
 ```html
 <script src="https://cdn.jsdelivr.net/npm/bynixscript"></script>
 ```
@@ -34,7 +34,7 @@ To delete a file
 ```
 bsd path/to/script.bs
 ```
-### Using CDN
+### Using CDN <a name="using-cdn-get-started"></a>
 ```html
 <bynix>
   const message = "Hello from BynixScript!"
@@ -75,10 +75,10 @@ person.speak()
 - [What Is BynixScript](#What-Is-BynixScript)
   - [Installation](#Installation)
       - [Using NPM](#using-npm-installation)
-      - [Using CDN](#Using-cdn)
+      - [Using CDN](#using-cdn-installation)
   - [Get Started](#Get-Started)
       - [Using NPM](#using-npm-get-started)
-      - [Using CDN](#Using-cdn)
+      - [Using CDN](#using-cdn-get-started)
   - [Extension](#Extension)
   - [Example](#Example)
   - [Table of content](#Table-of-content)
