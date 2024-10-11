@@ -82,4 +82,20 @@ person.speak()
   - [Extension](#Extension)
   - [Example](#Example)
   - [Table of content](#Table-of-content)
-  
+  - [Function](#Function)
+  - [Changelog](#Changelog)
+  - [Roadmap](#Roadmap)
+## Function
+BynixScript provides many functions, such as for-to:
+```javascript
+for i=0 to 5:
+  print("Loop to " + i)
+end
+```
+You can see all the functions like condition, flow control, exception, etc. in the [function list](docs/markdown/function.md).
+## Changelog
+You can see all the changes made in BynixScript itself, as well as its Extensions in VSCode.
+- [BynixScript](https://github.com/UngGas-Studio/BynixScript/releases)
+- [Extension](https://github.com/UngGas-Studio/BynixScript-Extension/releases)
+## Roadmap
+So that you know what the purpose of this programming language is in the future. You can see the [roadmap](docs/markdown/roadmap.md)
