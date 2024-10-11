@@ -8,16 +8,16 @@ Simply put, BynixScript is a programming language created by UngGas Studio. For 
 [![Package](https://img.shields.io/npm/dw/bynixscript)](https://www.npmjs.com/package/bynixscript?activeTab=readme)
 
 ## Installation
-### Using NPM
+### Using NPM <a name="using-npm-installation"></a>
 ```
 npm install -g bynixscript
 ```
 ### Using CDN
-```
+```html
 <script src="https://cdn.jsdelivr.net/npm/bynixscript"></script>
 ```
 ## Get Started
-### Using NPM
+### Using NPM <a name="using-npm-get-started"></a>
 Run a BynixScript file:
 ```
 bsr path/to/script.bs
@@ -74,10 +74,10 @@ person.speak()
 ## Table of content
 - [What Is BynixScript](#What-Is-BynixScript)
   - [Installation](#Installation)
-      - [Using NPM](#Using-npm)
+      - [Using NPM](#using-npm-installation)
       - [Using CDN](#Using-cdn)
   - [Get Started](#Get-Started)
-      - [Using NPM](#Using-npm)
+      - [Using NPM](#using-npm-get-started)
       - [Using CDN](#Using-cdn)
   - [Extension](#Extension)
   - [Example](#Example)
