@@ -7,6 +7,9 @@ Simply put, BynixScript is a programming language created by UngGas Studio. For 
 [![Youtube](https://img.shields.io/badge/YouTube-Channel-orange)](https://youtube.com/@unggas-studio?si=rwzB7AXjr-jCqg_J)
 [![Package](https://img.shields.io/npm/dw/bynixscript)](https://www.npmjs.com/package/bynixscript?activeTab=readme)
 
+## Share experiences
+If you want to share your experience using BynixScript, you can go to the [form](https://docs.google.com/forms/d/e/1FAIpQLSf-PJBXod_6suXEPr2no5NbY_19JQldvOkWV6LcwCzKP2UO8A/viewform) page.
+
 ## Installation
 ### Using NPM <a name="using-npm-installation"></a>
 ```
@@ -74,6 +77,7 @@ person.speak()
 BynixScript code examples are not limited to that, BynixScript still has other examples that you can see on the [example](docs/markdown/example.md) page
 ## Table of content
 - [What Is BynixScript](#What-Is-BynixScript)
+  - [Share experiences](#Share-experiences)
   - [Installation](#Installation)
       - [Using NPM](#using-npm-installation)
       - [Using CDN](#using-cdn-installation)
