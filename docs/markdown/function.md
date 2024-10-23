@@ -299,11 +299,17 @@ myText.change("World!", "There!")
 
 ``--``: decrement
 ##### Comparison
+``>``: greater than
+``<``: smaller than
+``>=``: greater than or equal to
+``<=``: less than or equal to
 ``=``: assignment
 
 ``==``: equality
 
 ``===``: strict equality
+``!=``: not equal to
+``!==``: not equal to and different data types
 ##### Logic
 ``&&``: And
 
@@ -479,6 +485,8 @@ if (err instanceof TypeError) {
   - reference
   - syntax
   - range
+  - uri
+  - eval
 ```javascript
 throw new Err("Error message")
 // throw new Error("Error Message");

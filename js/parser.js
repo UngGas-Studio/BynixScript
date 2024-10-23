@@ -1,5 +1,7 @@
-const { defaultConfig, config, extensions, toFolder, readFolder, readAll, allowJs, translate } = require('./bsconfig.js');
-let parsingMsg = "";
+const { defaultConfig, config, extensions, toFolder, readFolder, readAll, allowJs, translate } = require('./bsc.js');
+let parsingMsg = {
+  message: ""
+};
 
 function parsing(variable) {
   const patterns = [
@@ -77,11 +79,10 @@ function parsing(variable) {
     }).filter(Boolean);
   
     if (matches.length > 0) {
-      parsingMsg = "Invalid function '" + matches.join("', '") + "'";
-      console.log(parsingMsg);
+      parsingMsg.message = "Invalid function '" + matches.join("', '") + "'";
       return false;
     } else {
-      parsingMsg = "";
+      parsingMsg.message = "";
       return true;
     }
   }
@@ -109,8 +110,7 @@ function parseCode(code) {
         if (regex.blockStart.test(trimmedLine)) {
             stack.push('block');
             output.push(line);
-        } else if (regex.listener.test(trimmedLine) || regex.change.test(trimmedLine) || 
-                   regex.map.test(trimmedLine) || regex.filter.test(trimmedLine) || regex.forEach.test(trimmedLine)) {
+        } else if (regex.listener.test(trimmedLine) || regex.change.test(trimmedLine) || regex.map.test(trimmedLine) || regex.filter.test(trimmedLine) || regex.forEach.test(trimmedLine)) {
             stack.push('listener');
             output.push(line);
         } else if (regex.func.test(trimmedLine)) {
@@ -150,4 +150,4 @@ function addSemicolons(code) {
     return output.join('\n');
 }
 
-module.exports = { parsing, parseCode, addSemicolons };
+module.exports = { parsingMsg, parsing, parseCode, addSemicolons };

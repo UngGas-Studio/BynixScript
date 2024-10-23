@@ -1,5 +1,5 @@
 {
-  "readFolder": "./src/",
-  "toFolder": "./dist/",
+  "readFolder": "./src/parser",
+  "toFolder": "./dist/parser",
   "allowJs": true
 }

@@ -4,9 +4,9 @@ const { https, getDownloads } = require('./js/download.js')
 const method = process.argv[2]
 
 if method === "-v":
-  print("v0.2.0")
+  print("v0.2.1-next")
 elif method === "--version":
-  print("v0.2.0")
+  print("v0.2.1-next")
 elif method === "-h":
   const select = process.argv[3]
   print("<=====[ BynixScript ]=====>")

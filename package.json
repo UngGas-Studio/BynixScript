@@ -1,6 +1,6 @@
 {
     "name": "bynixscript",
-    "version": "0.2.0",
+    "version": "0.2.1-next",
     "description": "This is new Programming Language.",
     "browser": "js/browser.js",
     "main": "./index.js",

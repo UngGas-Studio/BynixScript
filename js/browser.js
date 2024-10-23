@@ -68,118 +68,147 @@ function executeCode(code) {
   if (parsingResults === "false") {
     console.error(`Please check your code and try again.`);
   } else {
-  code = code.replace(/func\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\(([^)]*)\):/g, (match, p1, p2) => `function ${p1}(${p2}) {`);
-  code = code.replace(/elif\s+(.+?):/g, (match, p1) => `} else if (${p1}) {`);
-  code = code.replace(/if\s+(.+?):/g, (match, p1) => `if (${p1}) {`);
-  code = code.replace(/else:/g, "} else {");
-  code = code.replace(/forEach\((.+?)\)\:/g, (match, p1) => `forEach(${p1} => {`);
-  code = code.replace(/forEach\((.+?)\s=>\s(.+?)\)/g, (match, p1, p2) => `forEach(${p1} => ${p2})`);
-  code = code.replace(/var\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*=\s*(.+?);/g, (match, p1, p2) => `var ${p1} = ${p2};`);
-  code = code.replace(/const\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*=\s*(.+?);/g, (match, p1, p2) => `var ${p1} = ${p2};`);
-  code = code.replace(/print(\.[a-zA-Z]+)?\((.+?)\)/g, (match, p1, p2) => {
-    const type = p1 || '';
-
-    if (type.includes(".info") || type.includes(".debug") || type.includes(".trace") || type.includes(".warn") || type.includes(".assert")) {
-      return `console${p1}(${p2})`
-    } else if (type.includes(".err")) {
-      return `console.error(${p2})`
-    } else if (match.includes("/")) {
-      return match;
-    } else {
-      return `console.log(${p2})`
-    }
-  });
-  code = code.replace(/touch\((.+?)\)/g, (match, p1) => `alert(${p1});`);
-  code = code.replace(/ask\((.+?)\)/g, (match, p1) => `prompt(${p1});`);
-  code = code.replace(/confirm\((.+?)\)/g, (match, p1) => `confirm(${p1});`);
-  code = code.replace(/rand\((.+?)\)/g, (match, p1) => `Math.random(${p1})`);
-  code = code.replace(/roundDown\((.+?)\)/g, (match, p1) => `Math.floor(${p1})`);
-  code = code.replace(/roundUp\((.+?)\)/g, (match, p1) => `Math.ceil(${p1})`);
-  code = code.replace(/maxOf\((.+?)\)/g, (match, p1) => `Math.min(${p1})`);
-  code = code.replace(/minOf\((.+?)\)/g, (match, p1) => `Math.max(${p1})`);
-  code = code.replace(/getElement\((.+?)\)/g, (match, p1) => `document.querySelector(${p1});`);
-  code = code.replace(/getAllElement\((.+?)\)/g, (match, p1) => `document.querySelectorAll(${p1});`);
-  code = code.replace(/createElement\((.+?)\)/g, (match, p1) => `document.createElement(${p1});`);
-  code = code.replace(/\.addClass\((.+?)\)/g, (match, p1) => `.classList.add(${p1})`);
-  code = code.replace(/([^\s].+)\.addElement\((.+?)\)/g, (match, p1, p2) => `document.${p1}.appendChild(${p2});`);
-  code = code.replace(/(.+?)\.listener\((.+?)\)\:/g, (match, p1, p2) => `${p1}.addEventListener(${p2}, () => {`)
-  code = code.replace(/listener\((.+?)\)\:/g, (match, p1) => `document.addEventListener(${p1}, function() {`)
-  code = code.replace(/(.+?)\.change\((.+?), \((.+?)\)\)\:/g, (match, p1, p2, p3) => `${p1}.replace(${p2}, (${p3}) => {`)
-  code = code.replace(/(.+?)\.change\((.+)\)/g, (match, p1, p2) => `${p1}.replace(${p2})`);
-  code = code.replace(/(.+?)\.text/g, (match, p1) => `${p1}.textContent`)
-  code = code.replace(/(.+?)\.text = (.+?)/g, (match, p1, p2) => `${p1}.textContent = ${p2}`);
-  code = code.replace(/(?<!["'`])#(.+?)/g, (match, p1) => `//${p1}`);
-  code = code.replace(/\*\*(.+?)/g, (match, p1) => `/*${p1}`);
-  code = code.replace(/(.+?)\*\*/g, (match, p1) => `${p1}*/`);
-  code = code.replace(/is_includes\s===\s([a-zA-Z0-9"'`]+)/g, (match, p1) => `includes(${p1})`);
-  code = code.replace(/is_start\s===\s([a-zA-Z0-9"'`!?*#@$_&-+|.,:;=×÷%/]+)/g, (match, p1) => `startsWith(${p1})`);
-  code = code.replace(/is_end\s===\s([a-zA-Z0-9"'`!?*#@$_&-+|.,:;=×÷%/]+)/g, (match, p1) => `endsWith(${p1})`);
-  code = code.replace(/is_matched\s===\s"(.+?)"/g, (match, p1) => `match(${p1})`);
-  code = code.replace(/is_matched\s===\s'(.+?)'/g, (match, p1) => `match(${p1})`);
-  code = code.replace(/is_value\s===\s([a-zA-Z0-9"'`]+)/g, (match, p1) => `value === ${p1}`);
-  code = code.replace(/is_design.(.+?)\s===\s([a-zA-Z0-9"'`]+)/g, (match, p1, p2) => `style.${p1} === ${p2}`);
-  code = code.replace(/(.+?)\.design\.(.+?)\s=\s(.+?)/g, (match, p1, p2, p3) => `${p1}.style.${p2} = ${p3}`);
-  code = code.replace(/(.+?)\.design\s=\s(.+?)/g, (match, p1, p2) => `${p1}.style = ${p2}`);
-  code = code.replace(/is_action\s([=!><]+)\s(["'])checked(["'])/g, (match) => `checked`);
-  code = code.replace(/is_action\s([=!><]+)\s(["'])selected(["'])/g, (match) => `selected`);
-  code = code.replace(/is_action\s([=!><]+)\s(["'])open(["'])/g, (match) => `open`);
-  code = code.replace(/is_have\s([=!><]+)\s(["'])required(["'])/g, (match) => `required`);
-  code = code.replace(/is_have\s([=!><]+)\s(["'])readOnly(["'])/g, (match) => `readOnly`);
-  code = code.replace(/is_have\s([=!><]+)\s(["'])autofocus(["'])/g, (match) => `autofocus`);
-  code = code.replace(/is_have\s([=!><]+)\s(["'])disabled(["'])/g, (match) => `disabled`);
-  code = code.replace(/is_have\s([=!><]+)\s(["'])multiple(["'])/g, (match) => `multiple`);
-  code = code.replace(/is_have\s([=!><]+)\s(["'])hidden(["'])/g, (match) => `hidden`);
-  code = code.replace(/delay\:\n\s+(.+?)/g, (match, p1) => `setTimeout(function() {\n    ${p1}`);
-  code = code.replace(/repeat\:\n\s+(.+?)/g, (match, p1) => `setInterval(function() {\n    ${p1}`);
-  code = code.replace(/for (.+?)=(.+?) to (.+?)\:/g, (match, p1, p2, p3) => `for (let ${p1} = ${p2}; ${p1} < ${p3}; ${p1}++) {`);
-  code = code.replace(/for (.+?) in (.+?)\:/g, (match, p1, p2) => `for (let ${p1} in ${p2}) {`);
-  code = code.replace(/for (.+?) of (.+?)\:/g, (match, p1, p2) => `for (let ${p1} of ${p2}) {`);
-  code = code.replace(/(?<![(])match\s*(.+?)\:/g, (match, p1) => `switch ((${p1})) {`)
-  code = code.replace("switch ((", "switch (")
-  code = code.replace(")) {", ") {")
-  code = code.replace(/case (.+?):\n(.+?)/g, (match, p1, p2) => `case ${p1}: \n${p2}`)
-  code = code.replace(/([^\s].+?)\.image\s*=\s*(['"`][^'"`]*['"``])/g, (match, p1, p2) => `image(${p1}, ${p2})`);
-  code = code.replace(/process\.argv\[(\d+)\]/g, (match, p1) => {
-    var a = Number(p1) + 0;
-    return `process.argv[${a}]`;
-  });
-  code = code.replace(/int\((.+?)\)/g, (match, p1) => `parseInt(${p1})`)
-  code = code.replace(/num\((.+?)\)/g, (match, p1) => `Number(${p1})`)
-  code = code.replace(/str\((.+?)\)/g, (match, p1) => `String(${p1})`)
-  code = code.replace(/float\((.+?)\)/g, (match, p1) => `parseFloat(${p1})`)
-  code = code.replace(/(.+?)\.map\((.+?)\)\:/g, (match, p1, p2) => `${p1}.map(function(${p2}) {`)
-  code = code.replace(/(.+?)\.filter\((.+?)\)\:/g, (match, p1, p2) => `${p1}.filter(function(${p2}) {`)
-  code = code.replace(/(.+?)\.reduce\((.+?)\)\:/g, (match, p1, p2) => `${p1}.reduce(function(${p2}) {`)
-  code = code.replace(/(?<![\s])([a-zA-Z0-9_$]+)\.type/g, (match, p1) => `typeof ${p1}`)
-  code = code.replace(/([a-zA-Z0-9_$]+)\.is_type\s===\s([a-zA-Z0-9"'`]+)/g, (match, p1, p2) => `typeof ${p1} === ${p2}`)
-  code = code.replace(/([a-zA-Z0-9_$]+)\.is_error\s===\s(["'])type(["'])/g, (match, p1) => `${p1} instanceof TypeError`)
-  code = code.replace(/([a-zA-Z0-9_$]+)\.is_error\s===\s(["'])reference(["'])/g, (match, p1) => `${p1} instanceof ReferenceError`)
-  code = code.replace(/([a-zA-Z0-9_$]+)\.is_error\s===\s(["'])syntax(["'])/g, (match, p1) => `${p1} instanceof SyntaxError`)
-  code = code.replace(/([a-zA-Z0-9_$]+)\.is_error\s===\s(["'])range(["'])/g, (match, p1) => `${p1} instanceof RangeError`)
-  code = code.replace(/([a-zA-Z0-9_$]+)\.is_error\s===\s(["'])(.+?)(["'])/g, (match, p1, p2, p3) => `${p1} instanceof ${p3}`)
-  code = code.replace(/constructor\((.+?)\)\:/g, (match, p1) => `constructor(${p1}) {`);
-  code = code.replace(/(.+?)\(\)\:/g, (match, p1) => `${p1}() {`);
-  code = code.replace(/class\s(.+?)\:/g, (match, p1) => `class ${p1} {`);
-  code = code.replace(/class\s(.+?)\sextends\s(.+?)\:/g, (match, p1, p2) => `class ${p1} extends ${p2} {`);
-  code = code.replace(/static\((.+?)\)\ {/g, (match, p1) => `static(${p1}) {`);
-  code = code.replace(/super\((.+?)\)\:/g, (match, p1) => `super(${p1})`)
-  code = code.replace(/throw (.+?)/g, (match, p1) => `throw ${p1}`)
-  code = code.replace(/new (.+?)/g, (match, p1) => `new ${p1}`)
-  code = code.replace(/end\:(.+?)/g, (match, p1) => `}, ${p1});`);
-  code = code.replace(/handle\:/g, 'try {')
-  code = code.replace(/recovery\s\((.+?)\)\:/g, (match, p1) => `} catch (${p1}) {`)
-  code = code.replace(/final\:/g, "} finally {")
-  code = code.replace(/handle\:/g, 'try {')
-  code = code.replace(/recovery\s*\((.+?)\)\:/g, (match, p1) => `} catch (${p1}) {`)
-  code = code.replace(/final\:/g, "} finally {")
-  code = code.replace(/Err\((.+?)\)/g, (match, p1) => `Error(${p1})`)
-  code = code.replace(/URIErr\((.+?)\)/g, (match, p1) => `URIError(${p1})`)
-  code = code.replace(/EvalErr\((.+?)\)/g, (match, p1) => `EvalError(${p1})`)
-  code = code.replace(/TypeErr\((.+?)\)/g, (match, p1) => `TypeError(${p1})`)
-  code = code.replace(/RangeErr\((.+?)\)/g, (match, p1) => `RangeError(${p1})`)
-  code = code.replace(/SyntaxErr\((.+?)\)/g, (match, p1) => `Error(${p1})`)
-  code = code.replace(/InternalErr\((.+?)\)/g, (match, p1) => `InternalError(${p1})`)
-  code = code.replace(/ReferenceErr\((.+?)\)/g, (match, p1) => `ReferenceError(${p1})`)
+    // function
+    code = code.replace(/func\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*\(([^)]*)\):/g, (match, p1, p2) => `function ${p1}(${p2}) {`);
+    
+    // if, elif, else
+    code = code.replace(/elif\s+(.+?):/g, (match, p1) => `} else if (${p1}) {`);
+    code = code.replace(/if\s+(.+?):/g, (match, p1) => `if (${p1}) {`);
+    code = code.replace(/else:/g, "} else {");
+    
+    // forEach
+    code = code.replace(/forEach\((.+?)\)\:/g, (match, p1) => `forEach(${p1} => {`);
+    code = code.replace(/forEach\((.+?)\s=>\s(.+?)\)/g, (match, p1, p2) => `forEach(${p1} => ${p2})`);
+    
+    // var, const
+    code = code.replace(/var\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*=\s*(.+?);/g, (match, p1, p2) => `var ${p1} = ${p2};`);
+    code = code.replace(/const\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*=\s*(.+?);/g, (match, p1, p2) => `const ${p1} = ${p2};`);
+    
+    // print, print.err, print.info, print.debug, print.trace, print.warn, print.assert
+    code = code.replace(/print(\.[a-zA-Z]+)?\((.+?)\)/g, (match, p1, p2) => {
+      const type = p1 || '';
+  
+      if (type.includes(".info") || type.includes(".debug") || type.includes(".trace") || type.includes(".warn") || type.includes(".assert")) {
+        return `console${p1}(${p2})`
+      } else if (type.includes(".err")) {
+        return `console.error(${p2})`
+      } else if (match.includes("/")) {
+        return match;
+      } else {
+        return `console.log(${p2})`
+      }
+    });
+    
+    // touch, ask, confirm
+    code = code.replace(/touch\((.+?)\)/g, (match, p1) => `alert(${p1});`);
+    code = code.replace(/ask\((.+?)\)/g, (match, p1) => `prompt(${p1});`);
+    code = code.replace(/confirm\((.+?)\)/g, (match, p1) => `confirm(${p1});`);
+    
+    // rand, roundDown, roundUp, maxOf, minOf
+    code = code.replace(/rand\((.+?)\)/g, (match, p1) => `Math.random(${p1})`);
+    code = code.replace(/roundDown\((.+?)\)/g, (match, p1) => `Math.floor(${p1})`);
+    code = code.replace(/roundUp\((.+?)\)/g, (match, p1) => `Math.ceil(${p1})`);
+    code = code.replace(/maxOf\((.+?)\)/g, (match, p1) => `Math.min(${p1})`);
+    code = code.replace(/minOf\((.+?)\)/g, (match, p1) => `Math.max(${p1})`);
+    
+    // getElement, getAllElement, createElement, addClass, addElement, listener
+    code = code.replace(/getElement\((.+?)\)/g, (match, p1) => `document.querySelector(${p1});`);
+    code = code.replace(/getAllElement\((.+?)\)/g, (match, p1) => `document.querySelectorAll(${p1});`);
+    code = code.replace(/createElement\((.+?)\)/g, (match, p1) => `document.createElement(${p1});`);
+    code = code.replace(/\.addClass\((.+?)\)/g, (match, p1) => `.classList.add(${p1})`);
+    code = code.replace(/([^\s].+)\.addElement\((.+?)\)/g, (match, p1, p2) => `document.${p1}.appendChild(${p2});`);
+    code = code.replace(/(.+?)\.listener\((.+?)\)\:/g, (match, p1, p2) => `${p1}.addEventListener(${p2}, () => {`)
+    code = code.replace(/listener\((.+?)\)\:/g, (match, p1) => `document.addEventListener(${p1}, function() {`)
+    
+    // change
+    code = code.replace(/(.+?)\.change\((.+?), \((.+?)\)\)\:/g, (match, p1, p2, p3) => `${p1}.replace(${p2}, (${p3}) => {`)
+    code = code.replace(/(.+?)\.change\((.+)\)/g, (match, p1, p2) => `${p1}.replace(${p2})`);
+    
+    // text
+    code = code.replace(/(.+?)\.text/g, (match, p1) => `${p1}.textContent`)
+    code = code.replace(/(.+?)\.text = (.+?)/g, (match, p1, p2) => `${p1}.textContent = ${p2}`);
+    code = code.replace(/(?<!["'`])#(.+?)/g, (match, p1) => `//${p1}`);
+    code = code.replace(/\*\*(.+?)/g, (match, p1) => `/*${p1}`);
+    code = code.replace(/(.+?)\*\*/g, (match, p1) => `${p1}*/`);
+    
+    // condition property
+    code = code.replace(/is_includes\s===\s([a-zA-Z0-9"'`]+)/g, (match, p1) => `includes(${p1})`);
+    code = code.replace(/is_start\s===\s([a-zA-Z0-9"'`!?*#@$_&-+|.,:;=×÷%/]+)/g, (match, p1) => `startsWith(${p1})`);
+    code = code.replace(/is_end\s===\s([a-zA-Z0-9"'`!?*#@$_&-+|.,:;=×÷%/]+)/g, (match, p1) => `endsWith(${p1})`);
+    code = code.replace(/is_matched\s===\s"(.+?)"/g, (match, p1) => `match(${p1})`);
+    code = code.replace(/is_matched\s===\s'(.+?)'/g, (match, p1) => `match(${p1})`);
+    code = code.replace(/is_value\s===\s([a-zA-Z0-9"'`]+)/g, (match, p1) => `value === ${p1}`);
+    code = code.replace(/is_design.(.+?)\s===\s([a-zA-Z0-9"'`]+)/g, (match, p1, p2) => `style.${p1} === ${p2}`);
+    code = code.replace(/(.+?)\.design\.(.+?)\s=\s(.+?)/g, (match, p1, p2, p3) => `${p1}.style.${p2} = ${p3}`);
+    code = code.replace(/(.+?)\.design\s=\s(.+?)/g, (match, p1, p2) => `${p1}.style = ${p2}`);
+    code = code.replace(/is_action\s([=!><]+)\s(["'])checked(["'])/g, (match) => `checked`);
+    code = code.replace(/is_action\s([=!><]+)\s(["'])selected(["'])/g, (match) => `selected`);
+    code = code.replace(/is_action\s([=!><]+)\s(["'])open(["'])/g, (match) => `open`);
+    code = code.replace(/is_have\s([=!><]+)\s(["'])required(["'])/g, (match) => `required`);
+    code = code.replace(/is_have\s([=!><]+)\s(["'])readOnly(["'])/g, (match) => `readOnly`);
+    code = code.replace(/is_have\s([=!><]+)\s(["'])autofocus(["'])/g, (match) => `autofocus`);
+    code = code.replace(/is_have\s([=!><]+)\s(["'])disabled(["'])/g, (match) => `disabled`);
+    code = code.replace(/is_have\s([=!><]+)\s(["'])multiple(["'])/g, (match) => `multiple`);
+    code = code.replace(/is_have\s([=!><]+)\s(["'])hidden(["'])/g, (match) => `hidden`);
+    code = code.replace(/delay\:\n\s+(.+?)/g, (match, p1) => `setTimeout(function() {\n    ${p1}`);
+    
+    // loop
+    code = code.replace(/repeat\:\n\s+(.+?)/g, (match, p1) => `setInterval(function() {\n    ${p1}`);
+    code = code.replace(/for (.+?)=(.+?) to (.+?)\:/g, (match, p1, p2, p3) => `for (let ${p1} = ${p2}; ${p1} < ${p3}; ${p1}++) {`);
+    code = code.replace(/for (.+?) in (.+?)\:/g, (match, p1, p2) => `for (let ${p1} in ${p2}) {`);
+    code = code.replace(/for (.+?) of (.+?)\:/g, (match, p1, p2) => `for (let ${p1} of ${p2}) {`);
+    code = code.replace(/(?<![(])match\s*(.+?)\:/g, (match, p1) => `switch ((${p1})) {`)
+    code = code.replace("switch ((", "switch (")
+    code = code.replace(")) {", ") {")
+    code = code.replace(/case (.+?):\n(.+?)/g, (match, p1, p2) => `case ${p1}: \n${p2}`)
+    code = code.replace(/([^\s].+?)\.image\s*=\s*(['"`][^'"`]*['"``])/g, (match, p1, p2) => `image(${p1}, ${p2})`);
+    code = code.replace(/process\.argv\[(\d+)\]/g, (match, p1) => {
+      var a = Number(p1) + 0;
+      return `process.argv[${a}]`;
+    });
+    code = code.replace(/int\((.+?)\)/g, (match, p1) => `parseInt(${p1})`)
+    code = code.replace(/num\((.+?)\)/g, (match, p1) => `Number(${p1})`)
+    code = code.replace(/str\((.+?)\)/g, (match, p1) => `String(${p1})`)
+    code = code.replace(/float\((.+?)\)/g, (match, p1) => `parseFloat(${p1})`)
+    code = code.replace(/json\((.+?)\)/g, (match, p1) => `JSON.parse(${p1})`);
+    code = code.replace(/(.+?)\.map\((.+?)\)\:/g, (match, p1, p2) => `${p1}.map(function(${p2}) {`)
+    code = code.replace(/\.map\((.+?)\)/g, (match, p1) => `.map(${p1})`);
+    code = code.replace(/(.+?)\.filter\((.+?)\)\:/g, (match, p1, p2) => `${p1}.filter(function(${p2}) {`);
+    code = code.replace(/\.filter\((.+?)\)/g, (match, p1) => `.filter(${p1})`);
+    code = code.replace(/(.+?)\.reduce\((.+?)\)\:/g, (match, p1, p2) => `${p1}.reduce(function(${p2}) {`)
+    code = code.replace(/\.reduce\((.+?)\)/g, (match, p1) => `.reduce(${p1})`);
+    code = code.replace(/(?<![\s])([a-zA-Z0-9_$]+)\.type/g, (match, p1) => `typeof ${p1}`)
+    code = code.replace(/([a-zA-Z0-9_$]+)\.is_type\s===\s([a-zA-Z0-9"'`]+)/g, (match, p1, p2) => `typeof ${p1} === ${p2}`)
+    code = code.replace(/([a-zA-Z0-9_$]+)\.is_error\s===\s(["'])type(["'])/g, (match, p1) => `${p1} instanceof TypeError`)
+    code = code.replace(/([a-zA-Z0-9_$]+)\.is_error\s===\s(["'])reference(["'])/g, (match, p1) => `${p1} instanceof ReferenceError`)
+    code = code.replace(/([a-zA-Z0-9_$]+)\.is_error\s===\s(["'])syntax(["'])/g, (match, p1) => `${p1} instanceof SyntaxError`)
+    code = code.replace(/([a-zA-Z0-9_$]+)\.is_error\s===\s(["'])range(["'])/g, (match, p1) => `${p1} instanceof RangeError`)
+    code = code.replace(/([a-zA-Z0-9_$]+)\.is_error\s===\s(["'])uri(["'])/g, (match, p1) => `${p1} instanceof URIError`)
+    code = code.replace(/([a-zA-Z0-9_$]+)\.is_error\s===\s(["'])eval(["'])/g, (match, p1) => `${p1} instanceof EvalError`)
+    code = code.replace(/([a-zA-Z0-9_$]+)\.is_error\s===\s(["'])(.+?)(["'])/g, (match, p1, p2, p3) => `${p1} instanceof ${p3}`)
+    code = code.replace(/constructor\((.+?)\)\:/g, (match, p1) => `constructor(${p1}) {`);
+    code = code.replace(/(.+?)\(\)\:/g, (match, p1) => `${p1}() {`);
+    code = code.replace(/class\s(.+?)\:/g, (match, p1) => `class ${p1} {`);
+    code = code.replace(/class\s(.+?)\sextends\s(.+?)\:/g, (match, p1, p2) => `class ${p1} extends ${p2} {`);
+    code = code.replace(/static\((.+?)\)\ {/g, (match, p1) => `static(${p1}) {`);
+    code = code.replace(/super\((.+?)\)\:/g, (match, p1) => `super(${p1})`)
+    code = code.replace(/throw (.+?)/g, (match, p1) => `throw ${p1}`)
+    code = code.replace(/new (.+?)/g, (match, p1) => `new ${p1}`)
+    code = code.replace(/end\:(.+?)/g, (match, p1) => `}, ${p1});`);
+    code = code.replace(/handle\:/g, 'try {')
+    code = code.replace(/recovery\s\((.+?)\)\:/g, (match, p1) => `} catch (${p1}) {`)
+    code = code.replace(/final\:/g, "} finally {")
+    code = code.replace(/handle\:/g, 'try {')
+    code = code.replace(/recovery\s*\((.+?)\)\:/g, (match, p1) => `} catch (${p1}) {`)
+    code = code.replace(/final\:/g, "} finally {")
+    code = code.replace(/Err\((.+?)\)/g, (match, p1) => `Error(${p1})`)
+    code = code.replace(/URIErr\((.+?)\)/g, (match, p1) => `URIError(${p1})`)
+    code = code.replace(/EvalErr\((.+?)\)/g, (match, p1) => `EvalError(${p1})`)
+    code = code.replace(/TypeErr\((.+?)\)/g, (match, p1) => `TypeError(${p1})`)
+    code = code.replace(/RangeErr\((.+?)\)/g, (match, p1) => `RangeError(${p1})`)
+    code = code.replace(/SyntaxErr\((.+?)\)/g, (match, p1) => `Error(${p1})`)
+    code = code.replace(/InternalErr\((.+?)\)/g, (match, p1) => `InternalError(${p1})`)
+    code = code.replace(/ReferenceErr\((.+?)\)/g, (match, p1) => `ReferenceError(${p1})`)
   
   const script = document.createElement("script");
   script.textContent = code;

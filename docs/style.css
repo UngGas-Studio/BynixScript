@@ -383,3 +383,17 @@ section {
 .editor p {
   margin: 5px;
 }
+
+#downloads {
+  display: flex;
+  gap: 1.5px;
+  border-radius: 5px;
+}
+
+#downloads #text {
+  background-color: #2e2e2e;
+}
+
+#downloads #count {
+  background-color: #018f09;
+}
