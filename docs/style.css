@@ -67,7 +67,7 @@ nav ul li a {
     max-width: 600px;
 }
 
-.hero h1 {
+.hero h1, #example h1 {
     font-size: 48px;
     margin-bottom: 10px;
 }
