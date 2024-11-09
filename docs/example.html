@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BynixScript - Homepage</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <link rel="stylesheet" href="language.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">BynixScript</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#what-bynixscript-offers">Offer</a></li>
+                <li><a href="#example">Example</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Welcome to BynixScript</h1>
+            <p>Want easy syntax? Want an easy-to-use programming language?</p>
+            <a href="download.html" class="btn">Download Now!</a>
+        </div>
+    </div>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About BynixScript</h2>
+            <p>BynixScript is a programming language created for the purpose of being used in website development and development outside of the website.</p>
+        </div>
+    </section>
+
+    <section id="what-bynixscript-offers" class="offers-section">
+        <div class="container">
+            <h2>What BynixScript Offers</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>Intuitive Syntax</h3>
+                    <p>Easy to understand syntax.</p>
+                </div>
+                <div class="feature">
+                    <h3>Cross-Platform Compatibility</h3>
+                    <p>Can be run in both web and non-web environments.</p>
+                </div>
+                <div class="feature">
+                    <h3>Flexible Execution</h3>
+                    <p>Files can be run directly or compiled to JavaScript.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="example" class="example-section">
+      <div class="container">
+        <h2>Example</h2>
+        <p>This is a simple example of what can be done with BynixScript.</p>
+        <pre>
+          <div class="button-wrapper">
+            <button class="copy-btn">Copy</button>
+          </div>
+          <code class="language-bynixscript" id="code-block">
+var myAge = 12
+if myAge.is_type === "number":
+  if myAge > 18 || myAge === 18:
+    print("Adult")
+  else:
+    print("Child")
+  end
+else:
+  print("Value must be a number.")
+end
+        </code></pre>
+      </div>
+    </section>
+
+    <!--<footer>
+        <p>&copy; 2024 BynixScript. All rights reserved.</p>
+    </footer>-->
+
+    <script src="script.js"></script>
+    <script src="language.js"></script>
+</body>
+</html>
