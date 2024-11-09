@@ -7,9 +7,13 @@
 }
 
 .token.string {
-    color: #06ad26; /* Warna untuk string */
+    color: #8D97F2; /* Warna untuk string */
 }
 
 .token.operator {
-  background-color: #f5f2f0;
+  background-color: #6976E9;
+}
+
+.token.number {
+    color: #6976E9;
 }
