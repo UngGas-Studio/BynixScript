@@ -7,6 +7,8 @@ Simply put, BynixScript is a programming language created by SoTeen Studio. For 
 [![Youtube](https://img.shields.io/badge/YouTube-Channel-orange)](https://youtube.com/@unggas-studio?si=rwzB7AXjr-jCqg_J)
 [![Package](https://img.shields.io/npm/dw/bynixscript)](https://www.npmjs.com/package/bynixscript?activeTab=readme)
 
+> **Caution:** Please avoid using versions v0.0.1-next to v0.2.1-next as they contain known issues. v0.2.2-next will be released soon with improvements.
+
 ## Share experiences
 If you want to share your experience using BynixScript, you can go to the [form](https://docs.google.com/forms/d/e/1FAIpQLSf-PJBXod_6suXEPr2no5NbY_19JQldvOkWV6LcwCzKP2UO8A/viewform) page.
 
